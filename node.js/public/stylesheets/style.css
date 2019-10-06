@@ -17,13 +17,14 @@ nav{
 }
 
 .logo{
-  color: black;
-  font-size: 40px;
-  padding: 1%;
-  letter-spacing: 3px;
-  position: absolute;
-  left: 10%;
+  display: flex;
   width: 15%;
+  position: absolute;
+  left: 2.5%;
+}
+
+.logo h1{
+  margin-left: 5%; 
 }
 
 .nav-links {
@@ -58,4 +59,9 @@ nav{
   color: black;
 }
 
+.main{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-around;
+}
 
