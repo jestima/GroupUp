@@ -1,5 +1,5 @@
 # Group Up
-Social media is increasing exponentially in the lives of children, teenagers and adults. It allows family and friends to stay connected through the internet without the need to physically move to each other. Because of this ease of access, social media has been growing immensely in popularity and doesn't seem to be stopping any time soon. To accommodate this rising number of users, many companies are creating more platforms, each with their own creative twist. 
+Social media is increasing exponentially in the lives of children, teenagers and adults. It allows family and friends to stay connected through the internet without the need to physically move to each other. Because of this ease of access, social media has been growing immensely in popularity and doesn't seem to be stopping any time soon. To accommodate this rising number of users many companies are creating more platforms, each with their own creative twist. 
 
 In this project we intend to create a platform for hobbyists to come together, share or learn more about their hobbies, whatever they may be. One example of this type of platform is [meetup](https://www.meetup.com)​. On this website you can create events for people to sign up and meet. 
 
@@ -14,4 +14,7 @@ Secondary scenarios:
 
 - Another secondary scenario is that a user will be able to search for other users (either by clicking their username while on an event or by typing it on a search bar) and add them to his friend list.If the other user accepts the invitation they will be able to chat. 
  
- 
+ # Authors
+- [Bruno Ramos](https://github.com/BacRamos).
+- [Manuel Beijinho](https://github.com/BacRamos).
+
