@@ -14,7 +14,23 @@ Secondary scenarios:
 
 - Another secondary scenario is that a user will be able to search for other users (either by clicking their username while on an event or by typing it on a search bar) and add them to his friend list.If the other user accepts the invitation they will be able to chat. 
  
+ # Programs Used
+- [Github](https://www.github.com).
+- [Heroku](https://www.heroku.com).
+- [Visual Studio Code](https://code.visualstudio.com).
+
+# Languages Used
+- HTML.
+- CSS.
+- Javascript.
+- Node.js + Express.js
+
  # Authors
 - [Bruno Ramos](https://github.com/BacRamos).
-- [Manuel Beijinho](https://github.com/BacRamos).
+- [Manuel Beijinho](https://github.com/manuelbpc).
 
+# Acknowlegments
+- Miguel Bugalho.
+- Jacinto Estima.
+- José Vasconcelos.
+- Gabriel Pestana.
