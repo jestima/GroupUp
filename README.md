@@ -23,7 +23,7 @@ Secondary scenarios:
 - HTML.
 - CSS.
 - Javascript.
-- Node.js + Express.js
+- Node.js + Express.js.
 
  # Authors
 - [Bruno Ramos](https://github.com/BacRamos).
