@@ -48,7 +48,7 @@ nav{
   list-style-type: none;
   position: absolute;
   right: 2.5%;
-  width: 15%;
+  width: 20%;
   justify-content: space-around;
 }
 
@@ -77,4 +77,30 @@ nav{
   justify-content: left;
 }
 
+.contact{
+  background-color: black;
+  margin-top: 20%;
+  padding: 5%;
+  color: white;
+}
+
+.contact h3{
+  margin-bottom: 1%;
+  border-bottom: 5px;
+  border-color: white;
+}
+
+.contact li{
+  list-style-type: none;
+  margin-left: 1%;
+}
+
+.contact a{
+  color:white;
+  text-decoration: none;
+}
+
+.container{
+  column-count: 3;
+}
 
