@@ -15,7 +15,31 @@ Secondary scenarios:
 - The user can utilize the search bar to look for other users by writing their name.
 - When visiting another user’s profile you can click a button to add him as a friend.
 - By clicking on the Chat icon the user will see a friends list popping up and is then able to click a friend to chat with.
- 
+
+ # Functional and non functional requirements
+ - Non functional:
+      - User friendly.
+      - Responsive.
+      - Login security (using Google Sign in API).
+      
+ - Functional:
+      - Join Event. 
+      - Search Event.
+      - Create Event.
+        - Define type (routine, one-time event, workshop).
+        - Define date.
+        - Define title.
+        - Define hobbies.
+        - Define description.
+        - Define location using Google Maps API.
+        - Define price (optional).
+        - Define event image (optional).
+        
+ # Development Schedule
+ - First prototype by 17/11/2019.
+ - Alpha version of the project by 15/12/2019.
+ - Final version by 24/01/2020.
+
  
  # Programs Used
 - [Github](https://www.github.com).
