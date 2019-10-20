@@ -16,31 +16,29 @@ Secondary scenarios:
 - When visiting another user’s profile you can click a button to add him as a friend.
 - By clicking on the Chat icon the user will see a friends list popping up and is then able to click a friend to chat with.
 
+# Personas
+- User: Anyone with interest in using the website to look for events to join.
+- Advertiser: Anyone with interest in advertising his own workshop on the page.
+
  # Functional and non functional requirements
- - Non functional:
-      - User friendly.
-      - Responsive.
-      - Login security (using Google Sign in API).
-      
- - Functional:
-      - Join Event. 
-      - Search Event.
-      - Rate event.
-      - Comment on event.
-      - Add friends.
-      - Chat with friends.
-      - View event location (and directions) on Google Maps.
-      - Create Event.
-        - Define type (routine, one-time event, workshop).
-        - Define date.
-        - Define title.
-        - Define hobbies.
-        - Define description.
-        - Define location using Google Maps API.
-        - Define price (optional).
-        - Define event image (optional).
+ | #     | Requirement                          | Description                                                                 | Priority | Schedule (deadline) |
+|-------|--------------------------------------|-----------------------------------------------------------------------------|----------|---------------------|
+| FR01  | Create event                         | User creates events for others to join.                                     | HIGH     | 9/11/2019           |
+| FR02  | Join event                           | Users are able to join events.                                              | HIGH     | 15/11/2019          |
+| FR03  | Search event                         | Users can search events by name or type.                                    | LOW      |                     |
+| FR04  | Rate event                           | Users are able to rate events after attending.                              | LOW      |                     |
+| FR05  | Comment on event                     | Users are able to leave a comment on the event.                             | LOW      |                     |
+| FR06  | Add friends                          | Users are able to add friends.                                              | MEDIUM   | 24/12/2019          |
+| FR07  | Chat with friends                    | Users are able to chat with friends.                                        | MEDIUM   | 02/01/2020          |
+| FR08  | View event location (and directions) | Users can view the location of the event on the map and get its directions. | HIGH     | 20/12/2019          |
+| FR09  | Database creation                    | Create a simple database to support the website.                            | HIGH     | 15/11/2019          |
+| FR10  | Database connection                  | Connect mySQL to server.                                                    | HIGH     | 16/11/2019          |
+| NFR01 | W3C                                  | All data in three clicks.                                                   | HIGH     | 15/01/2020          |
+| NFR02 | User friendly                        | Interface easy to manipulate.                                               | HIGH     |                     |
+| NFR03 | Responsive                           | Works in all platforms (mobile, Windows, Mac, etc).                         | LOW      |                     |
+| NFR04 | Security                             | 2 factor authentication                                                     | MEDIUM   |                     |
         
- # Development Schedule
+# Development Schedule
  - First prototype by 17/11/2019.
  - Alpha version of the project by 15/12/2019.
  - Final version by 24/01/2020.
