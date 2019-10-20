@@ -25,6 +25,11 @@ Secondary scenarios:
  - Functional:
       - Join Event. 
       - Search Event.
+      - Rate event.
+      - Comment on event.
+      - Add friends.
+      - Chat with friends.
+      - View event location (and directions) on Google Maps.
       - Create Event.
         - Define type (routine, one-time event, workshop).
         - Define date.
