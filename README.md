@@ -37,7 +37,13 @@ Secondary scenarios:
 | NFR02 | User friendly                        | Interface easy to manipulate.                                               | HIGH     |                     |
 | NFR03 | Responsive                           | Works in all platforms (mobile, Windows, Mac, etc).                         | LOW      |                     |
 | NFR04 | Security                             | 2 factor authentication                                                     | MEDIUM   |                     |
-        
+     
+# CRUD Matrix
+| #                | Create Event | Join Event | Search Event | Rate Event | Comment on Event | Add Friends | Chat with Friends | View Event Location |
+|------------------|--------------|------------|--------------|------------|------------------|-------------|-------------------|---------------------|
+| Aplication Layer | R            | R          | R            | R          | R                | R           | R                 | R                   |
+| Business Layer   | CR           | RUD        | RU           | CRUD       | CRUD             | CRUD        | CRD               | R                   |
+| Data Layer       | CU           | UD         |              | CU         | CUD              | CUD         | CUD               | CU                  |
 # Development Schedule
  - First prototype by 17/11/2019.
  - Alpha version of the project by 15/12/2019.
