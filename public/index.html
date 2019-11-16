@@ -17,32 +17,59 @@
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 	<link rel="stylesheet" href="stylesheets/EventStyle.css">
+	<link rel="stylesheet" href="stylesheets/modal.css">
+
 
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
 
 </head>
 
 
 <body>
+	<!-- Modal Section -->
+	<div id="login-box">
+		<div class="left">
+			<h1>Sign up</h1>
 
-	<script>
+			<input type="text" name="username" placeholder="Username" />
+			<input type="text" name="email" placeholder="E-mail" />
+			<input type="password" name="password" placeholder="Password" />
+			<input type="password" name="password2" placeholder="Retype password" />
 
-		function signOut() {
-			var auth2 = gapi.auth2.getAuthInstance();
-			auth2.signOut().then(function () {
+			<input type="submit" name="signup_submit" value="Sign me up" />
+		</div>
 
-				alert("You have been successfully signed out");
+		<div class="right">
+			<span class="loginwith">Sign in with<br />social network</span>
 
-				$(".g-signin2").css("display", "block");
-				$(".data").css("display", "none");
+			<div id="my-signin2"></div>
+			
+		</div>
+		<div class="or">OR</div>
+	</div>
 
-			});
-		}
-	</script>
+
+
+	<div class="modal">
+		<div class="modal-container">
+			<div class="close">+</div>
+			<form action="">
+				<input type="radio" name="eventType" id="Routine">
+				<input type="radio" name="eventType" id="Event">
+				<input type="radio" name="eventType" id="Workshop">
+				<input type="text" placeholder="Event Title">
+				<input type="text" placeholder="Event Description">
+
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
 
 
 
 	<div class="container">
+
 		<!-- Top box -->
 		<!-- Logo & Site Name -->
 		<div class="placeholder">
@@ -61,10 +88,18 @@
 								<li class="nav-li"><a href="index.html" class="nav-link">Home</a></li>
 								<li class="nav-li"><a href="teste.html" class="nav-link">About</a></li>
 								<li class="nav-li"><a href="contact.html" class="nav-link">Contact</a></li>
-								<div id="my-signin2"></div>
+								<li class="nav-li"></li>
+								<button class="my-signout2" onclick="signOut()">Google Signout</button>
+								
+
+
 								<script>
 									function onSuccess(googleUser) {
 										console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+
+										$("#my-signin2").css("display", "none");
+										$(".my-signout2").css("display", "block");
+										$(".createEvent").css("display", "block");
 									}
 									function onFailure(error) {
 										console.log(error);
@@ -80,6 +115,19 @@
 											'onfailure': onFailure
 										});
 									}
+									function signOut() {
+										var auth2 = gapi.auth2.getAuthInstance();
+										auth2.signOut().then(function () {
+											console.log('User signed out.');
+										});
+
+										alert("You have been sucessfully logged out.")
+
+										$(".my-signout2").css("display", "none");
+										$("#my-signin2").css("display", "block");
+										$(".createEvent").css("display", "none");
+									}
+
 								</script>
 								<script src="https://apis.google.com/js/platform.js?onload=renderButton" async
 									defer></script>
@@ -102,143 +150,142 @@
 
 
 			<section class="events" id="events-section">
-				<div class="content-wrapper">
-					<div class="inner-container container-fluid">
-						<div class="row">
-							<div class="col-md-12 col-sm-12">
-								<div class="section-heading">
-									<div class="filter-categories">
-										<ul>
-											<li class="eventBTN">
-												<span>Create Event</span>
-											</li>
-										</ul>
-										<ul class="project-filter">
-											<li class="filter" data-filter="all"><span>Show All</span></li>
-											<li class="filter" data-filter="design"><span>Routines</span></li>
-											<li class="filter" data-filter="start"><span>Events</span></li>
-											<li class="filter" data-filter="web"><span>Workshops</span></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-10 col-sm-12 col-md-offset-1">
-								<div class="projects-holder">
-									<div class="event-list">
-										<ul>
-											<li class="project-item first-child mix web">
-												<ul class="event-item web">
-													<li>
-														<div class="date">
-															<span>06<br>Fev</span>
-														</div>
-													</li>
-													<li>
-														<h4>Aniversario do Manuel</h4>
-														<div class="web">
-															<span>Workshops</span>
-														</div>
-													</li>
-													<li>
-														<div class="time">
-															<span>8:00 AM - 11:00 AM<br>Saturday</span>
-														</div>
-													</li>
-													<li>
-														<div class="white-button">
-															<a href="#">I am interested</a>
-														</div>
-													</li>
-												</ul>
-											</li>
-											<li class="project-item first-child mix design">
-												<ul class="event-item design">
-													<li>
-														<div class="date">
-															<span>06<br>Fev</span>
-														</div>
-													</li>
-													<li>
-														<h4>Aniversario do Manuel</h4>
-														<div class="design">
-															<span>Routines</span>
-														</div>
-													</li>
-													<li>
-														<div class="time">
-															<span>8:00 AM - 11:00 AM<br>Saturday</span>
-														</div>
-													</li>
-													<li>
-														<div class="white-button">
-															<a href="#">I am interested</a>
-														</div>
-													</li>
-												</ul>
-											</li>
-											<li class="project-item first-child mix web">
-												<ul class="event-item web">
-													<li>
-														<div class="date">
-															<span>06<br>Fev</span>
-														</div>
-													</li>
-													<li>
-														<h4>Aniversario do Manuel</h4>
-														<div class="web">
-															<span>Workshop</span>
-														</div>
-													</li>
-													<li>
-														<div class="time">
-															<span>8:00 AM - 11:00 AM<br>Saturday</span>
-														</div>
-													</li>
-													<li>
-														<div class="white-button">
-															<a href="#">I am interested</a>
-														</div>
-													</li>
-												</ul>
-											</li>
-											<li class="project-item first-child mix design">
-												<ul class="event-item design">
-													<li>
-														<div class="date">
-															<span>06<br>Fev</span>
-														</div>
-													</li>
-													<li>
-														<h4>Aniversario do Manuel</h4>
-														<div class="design">
-															<span>Routines</span>
-														</div>
-													</li>
-													<li>
-														<div class="time">
-															<span>8:00 AM - 11:00 AM<br>Saturday</span>
-														</div>
-													</li>
-													<li>
-														<div class="white-button">
-															<a href="#">I am interested</a>
-														</div>
-													</li>
-												</ul>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
+
+				<button class="createEvent" id="cEventButton">Create Event</button>
+
+				<div class="row">
+					<div class="section-heading">
+						<div class="filter-categories">
+							<ul class="project-filter">
+
+								<li class="filter" data-filter="all"><span>Show All</span></li>
+								<li class="filter" data-filter="design"><span>Routines</span></li>
+								<li class="filter" data-filter="start"><span>Events</span></li>
+								<li class="filter" data-filter="web"><span>Workshops</span></li>
+							</ul>
 						</div>
 					</div>
 				</div>
+
+				<div class="projects-holder">
+					<div class="event-list">
+						<ul>
+							<li class="project-item first-child mix web">
+								<ul class="event-item web">
+									<li>
+										<div class="date">
+											<span>06<br>Fev</span>
+										</div>
+									</li>
+									<li>
+										<h4>Aniversario do Manuel</h4>
+										<div class="web">
+											<span>Workshops</span>
+										</div>
+									</li>
+									<li>
+										<div class="time">
+											<span>8:00 AM - 11:00 AM<br>Saturday</span>
+										</div>
+									</li>
+									<li>
+										<div class="white-button">
+											<a href="#">I am interested</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<li class="project-item first-child mix design">
+								<ul class="event-item design">
+									<li>
+										<div class="date">
+											<span>06<br>Fev</span>
+										</div>
+									</li>
+									<li>
+										<h4>Aniversario do Manuel3</h4>
+										<div class="design">
+											<span>Routines</span>
+										</div>
+									</li>
+									<li>
+										<div class="time">
+											<span>8:00 AM - 11:00 AM<br>Saturday</span>
+										</div>
+									</li>
+									<li>
+										<div class="white-button">
+											<a href="#">I am interested</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<li class="project-item first-child mix web">
+								<ul class="event-item web">
+									<li>
+										<div class="date">
+											<span>06<br>Fev</span>
+										</div>
+									</li>
+									<li>
+										<h4>Aniversario do Manuel2</h4>
+										<div class="web">
+											<span>Workshop</span>
+										</div>
+									</li>
+									<li>
+										<div class="time">
+											<span>8:00 AM - 11:00 AM<br>Saturday</span>
+										</div>
+									</li>
+									<li>
+										<div class="white-button">
+											<a href="#">I am interested</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<li class="project-item first-child mix design">
+								<ul class="event-item design">
+									<li>
+										<div class="date">
+											<span>06<br>Fev</span>
+										</div>
+									</li>
+									<li>
+										<h4>Aniversario do Manuel</h4>
+										<div class="design">
+											<span>Routines</span>
+										</div>
+									</li>
+									<li>
+										<div class="time">
+											<span>8:00 AM - 11:00 AM<br>Saturday</span>
+										</div>
+									</li>
+									<li>
+										<div class="white-button">
+											<a href="#">I am interested</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+
+						</ul>
+					</div>
+
+
+				</div>
+
+
 			</section>
 
 			<script src="js/datepicker.js"></script>
 			<script src="js/plugins.js"></script>
-			<script src="js/main.js"></script>	
-		
+			<script src="js/main.js"></script>
+			<script src="js/createevent.js"></script>
+			<script src="js/scrolldisabler.js"></script>
+
 		</main>
 
 		<footer class="footer text-center">

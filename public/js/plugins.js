@@ -828,7 +828,7 @@ jQuery(document).ready(function($){
                 
                 var showOnLoadArray = config.showOnLoad.split(' ');
                 
-                // GIVE ACTIVE FILTER ACTIVE CLASS
+                // GIVE ACTIVE FILTER ACTIVE CLASS (METE O DEFAULT HIGHLIGHTED)
                 
                 $.each(showOnLoadArray, function(){
                     $(config.filterSelector+'[data-filter="'+this+'"]').addClass('active');

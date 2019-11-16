@@ -1,32 +1,7 @@
-/* 
 
-Avalon Template 
 
-http://www.templatemo.com/tm-513-avalon
 
-*/
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', arial, sans-serif;
-}
-
-body {
-	overflow-x: hidden;
-	background-color: #fff;
-}
-
-ul {
-	list-style: none;
-	margin: 0px;
-}
-
-p {
-	font-size: 13px;
-	line-height: 22px;
-	color: #4a4a4a;
-}
 
 .white-border-button a {
 	padding: 14px 20px;
@@ -69,12 +44,47 @@ p {
 	background-size: cover;
 	background-position: center center;
 }
+.createEvent {
+  display: none;
+  transition: all 0.5s;
+  text-transform:uppercase;
+  letter-spacing: 0.5px;
+  color:#121212;
+  font-size: 17px!important;
+  font-weight: 600;
+  max-width: 200px;
+  width: 200px;
+  height: 70px;
+  background-color: #f4bc51;
+  cursor: pointer;
+  margin-top: -5%;
+  margin-bottom: 5%;
+  margin-right: 100%;
+  margin-left: 88%;
+  border: none;
+  animation: fadein 1s ease forwards;
+  
+  
+  
+  }
+  @keyframes fadein{
+	  0%{
+		  opacity:0;
+	  }
+	  100%{
+		  opacity: 1;;
+	  }
+  }
+  .createEvent:focus{
+	background-color: orange;
+  }
+  
 
 .events .filter-categories {
   list-style: none;
   margin-top: 0px;
   padding-right: 0px;
-  padding-left: 100px;
+  padding-left: 150px;
   text-align: center;
   margin-bottom: 60px;
 }
@@ -88,7 +98,7 @@ p {
 .events .filter-categories li {
   display:block;
   transition: all 0.5s;
-  text-align: center;
+  text-align: center	;
   text-decoration:none;
   text-transform:uppercase;
   letter-spacing: 0.5px;
@@ -100,35 +110,15 @@ p {
   width: 200px;
   height: 70px;
   line-height: 70px;
-  background-color: #fff;
+  background-color: white;
   cursor: pointer;
+  margin-left: 0%;
 }
 
-.eventBTN {
-	display:block;
-	transition: all 0.5s;
-	text-align: center;
-	text-decoration:none;
-	text-transform:uppercase;
-	letter-spacing: 0.5px;
-	color:#121212;
-	font-size: 17px!important;
-	font-weight: 600;
-	display: inline-block;
-	max-width: 200px;
-	width: 200px;
-	height: 70px;
-	line-height: 70px;
-	background-color: #fff;
-	cursor: pointer;
-  }
+
 
 .filter-categories ul li.active span {
   color: #f4bc51;
-}
-
-.eventBTN ul li.active span {
-	color: #f4bc51;
 }
 
 .project-item {
@@ -136,7 +126,7 @@ p {
 }
 
 .event-list {
-	background-color: #fff;
+	background-color: white;
 }
 
 .event-list ul {
