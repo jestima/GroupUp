@@ -2,181 +2,162 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Simple House - About Page</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
-    <link href="stylesheets/all.min.css" rel="stylesheet" />
-	<link href="stylesheets/templatemo-style.css" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1,firefox=1" />
+    <title>Group Up</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link href="stylesheets/MainStyle.css" rel="stylesheet" />
+
+
+    <meta name="google-signin-client_id"
+        content="825230827003-kdmpj420h2l5daf817iebmane4ksl5uu.apps.googleusercontent.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+    <link rel="stylesheet" href="stylesheets/modal.css">
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <script src="js/EventSearch.js"></script>
+
 </head>
-<!--
 
-Simple House
 
-https://templatemo.com/539-simple-house
+<body>
+    <!-- Modal Section -->
+    <div class="modal">
+        <div id="overlay">
+            <div class="modal-container">
+                <div class="close">+</div>
+                <form action="">
+                    <input type="radio" name="eventType" id="Routine">
+                    <input type="radio" name="eventType" id="Event">
+                    <input type="radio" name="eventType" id="Workshop">
+                    <input type="text" placeholder="Event Title">
+                    <input type="text" placeholder="Event Description">
 
--->
-<body> 
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
 
-	<div class="container">
-	<!-- Top box -->
-		<!-- Logo & Site Name -->
-		<div class="placeholder">
-			<div class="parallax-window" data-parallax="scroll" data-image-src="img/simple-house-01.jpg">
-				<div class="header">
-					<div class="row header-inner">
-						<div class="col-md-6 col-12">
-							<img src="img/simple-house-logo.png" alt="Logo" class="site-logo" /> 
-							<div class="site-text-box">
-								<h1 class="site-title">Simple House</h1>
-								<h6 class="site-description">new restaurant template</h6>	
-							</div>
-						</div>
-						<nav class="col-md-6 col-12 nav">
-							<ul class="nav-ul">
-								<li class="nav-li"><a href="index.html" class="nav-link">Home</a></li>
-								<li class="nav-li"><a href="about.html" class="nav-link active">About</a></li>
-								<li class="nav-li"><a href="contact.html" class="nav-link">Contact</a></li>
-							</ul>
-						</nav>	
-					</div>
-				</div>
-			</div>
-		</div>
 
-		<main>
-			<header class="row welcome-section">
-				<h2 class="col-12 text-center section-title">About Simple House</h2>
-				<p class="col-12 text-center">This is about page of simple house template. 
-                You can modify and use this HTML template for your website. Total 3 HTML pages included in this template. Header image has a parallax effect.</p>
-			</header>
+    <div class="container">
+        <div class="placeholder">
+            <div class="parallax-window" data-parallax="scroll" data-image-src="img/header.jpg">
+                <div class="header">
+                    <div class="row header-inner">
+                        <div class="col-md-6 col-12">
+                            <img src="img/dontcopystrikepls.png" alt="Logo" class="site-logo" />
+                            <div class="site-text-box">
+                                <h1 class="site-title">Group Up</h1>
+                                <h6 class="site-description">Meet people with the same hobbies</h6>
+                            </div>
+                        </div>
+                        <nav class="col-md-6 col-12 nav">
+                            <ul class="nav-ul">
+                                <li class="nav-li"><a href="index.html" class="nav-link">Home</a></li>
+                                <li class="nav-li"><a href="teste.html" class="nav-link">About</a></li>
+                                <li class="nav-li"><a href="contact.html" class="nav-link">Contact</a></li>
+                                <li class="nav-li">
+                                    <p class="nav-link" onclick="openSignUp()" id="mySuL">Sign Up/Login</p>
+                                </li>
+                                <button class="my-signout2" onclick="signOut()">Google Signout</button>
 
-			<div class="container-inner persons">
-				<div class="row">
-					<article class="col-lg-6">
-						<figure class="person">
-							<img src="img/about-01.jpg" alt="Image" class="img-fluid person-img" />
-							<figcaption class="person-description">
-								<h4 class="person-name">Jennifer Soft</h4>
-								<p class="person-title">Founder and CEO</p>
-								<p class="person-about">Vivamus cursus leo nec sem feugiat sagittis.
-								Duis ut feugiat odio, sit amet accumsan
-								odio.</p>
-								<div>
-									<a href="https://fb.com" class="social-link"><i class="fab fa-facebook social-icon"></i></a>
-									<a href="https://twitter.com" class="social-link"><i class="fab fa-twitter social-icon"></i></a>
-									<a href="https://instagram.com" class="social-link"><i class="fab fa-instagram social-icon"></i></a>
-								</div>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-6">
-						<figure class="person">
-							<img src="img/about-02.jpg" alt="Image" class="img-fluid person-img" />
-							<figcaption class="person-description">
-								<h4 class="person-name">Daisy Walker</h4>
-								<p class="person-title">Executive Chef</p>
-								<p class="person-about">Praesent non vulputate elit. Orci varius
-								natoque et magnis dis parturient, nascetur ridiculus mus.</p>
-								<div>
-									<a href="https://fb.com" class="social-link"><i class="fab fa-facebook social-icon"></i></a>
-									<a href="https://twitter.com" class="social-link"><i class="fab fa-twitter social-icon"></i></a>
-								</div>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-6">
-						<figure class="person">
-							<img src="img/about-03.jpg" alt="Image" class="img-fluid person-img" />
-							<figcaption class="person-description">
-								<h4 class="person-name">Florence Nelson</h4>
-								<p class="person-title">Kitchen Manager</p>
-								<p class="person-about">Aenean sapien sem, ultricies sed vulputate
-								et, auctor vel mauris. Integer sit amet diam eget est facilisis lacinia vitae.</p>
-								<div>
-									<a href="https://fb.com" class="social-link"><i class="fab fa-facebook social-icon"></i></a>
-									<a href="https://instagram.com" class="social-link"><i class="fab fa-instagram social-icon"></i></a>
-								</div>
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-6">
-						<figure class="person">
-							<img src="img/about-04.jpg" alt="Image" class="img-fluid person-img" />
-							<figcaption class="person-description">
-								<h4 class="person-name">Valentina Martin</h4>
-								<p class="person-title">Culinary Director</p>
-								<p class="person-about">Praesent non vulputate elit. Orci varius
-								natoque penatibus et magnis montes, nascetur ridiculus mus.</p>
-								<div>
-									<a href="https://fb.com" class="social-link"><i class="fab fa-facebook social-icon"></i></a>
-									<a href="https://twitter.com" class="social-link"><i class="fab fa-twitter social-icon"></i></a>
-									<a href="https://instagram.com" class="social-link"><i class="fab fa-instagram social-icon"></i></a>
-									<a href="https://youtube.com" class="social-link"><i class="fab fa-youtube social-icon"></i></a>
-								</div>
-							</figcaption>
-						</figure>
-					</article>
-				</div>
-			</div>
-			<div class="container-inner featured-image">
-				<div class="row">
-					<div class="col-12">
-						<div class="placeholder-2">
-							<div class="parallax-window-2" data-parallax="scroll" data-image-src="img/about-05.jpg"></div>		
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="container-inner features">
-				<div class="row">
-					<div class="col-lg-4">
-						<div class="feature">
-							<i class="fas fa-4x fa-pepper-hot feature-icon"></i>
-							<p class="feature-description">Donec sed orci fermentum, convallis lacus id, tempus elit. Sed eu neque accumsan, porttitor arcu a, interdum est. Donec in risus eu ante.</p>
-							<a href="index.html" class="btn btn-primary">Read More</a>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="feature">
-							<i class="fas fa-4x fa-seedling feature-icon"></i>
-							<p class="feature-description">Maecenas pretium rutrum molestie. Duis dignissim egestas turpis sit. Nam sed suscipit odio. Morbi in dolor finibus, consequat nisl eget.</p>
-							<a href="index.html" class="btn btn-success">Read More</a>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="feature">
-							<i class="fas fa-4x fa-cocktail feature-icon"></i>
-							<p class="feature-description">Morbi in dolor finibus, consequat nisl eget, pretium nunc. Maecenas pretium rutrum molestie. Duis dignissim egestas turpis sit.</p>
-							<a href="index.html" class="btn btn-danger">Read More</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="container-inner history">
-				<div class="row">
-					<div class="col-12">
-						<div class="history-inner">
-							<img src="img/about-06.jpg" alt="Image" class="img-fluid history-img" />
-							<div class="history-text"> 
-								<h4 class="history-title">History of our restaurant</h4>
-								<p class="mb-p">Sed ligula risus, interdum aliquet imperdiet sit amet, auctor sit amet justo. Maecenas posuere lorem id augue interdum vehicula. Praesent sed leo eget libero ultricies congue.</p>
-								<p>Redistributing this template as a downloadable ZIP file on any template collection site is strictly prohibited. You will need to <a href="https://templatemo.com/contact">contact TemplateMo</a> for additional permissions about our templates. Thank you.</p>
-							</div>
-						</div>	
-					</div>
-				</div>
-			</div>
-		</main>
 
-		<footer class="footer text-center">
-			<p>Copyright &copy; 2020 Simple House 
-            
-            | Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
-		</footer>
-	</div>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/parallax.min.js"></script>
+
+                                <script>
+
+                                    function onSuccess(googleUser) {
+                                        console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+
+
+                                        $("#login-box").css("display", "none");
+                                        $(".my-signout2").css("display", "block");
+                                        $(".createEvent").css("display", "block");
+                                        $('.modal').css("display", "none");
+                                        $('#mySuL').css("display", "none");
+                                    }
+                                    function onFailure(error) {
+                                        console.log(error);
+                                    }
+                                    function renderButton() {
+                                        gapi.signin2.render('my-signin2', {
+                                            'scope': 'profile email',
+                                            'width': 160,
+                                            'height': 30,
+                                            'longtitle': true,
+                                            'theme': 'dark',
+                                            'onsuccess': onSuccess,
+                                            'onfailure': onFailure
+                                        });
+                                    }
+                                    function signOut() {
+                                        var auth2 = gapi.auth2.getAuthInstance();
+                                        auth2.signOut().then(function () {
+                                            console.log('User signed out.');
+                                        });
+
+                                        alert("You have been sucessfully logged out.")
+
+                                        $(".my-signout2").css("display", "none");
+                                        $(".createEvent").css("display", "none");
+                                        $('#mySuL').css("display", "block");
+                                    }
+
+                                    function openSignUp() {
+                                        $("#login-box").css("display", "block");
+                                        $('.modal').css("display", "flex");
+                                        window.scrollTo(0, 500);
+
+                                    }
+
+                                </script>
+                                <script src="https://apis.google.com/js/platform.js?onload=renderButton" async
+                                    defer></script>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+                <div id="login-box">
+                        <div class="left">
+                            <h1>Sign up</h1>
+    
+                            <input type="text" name="username" placeholder="Username" />
+                            <input type="text" name="email" placeholder="E-mail" />
+                            <input type="password" name="password" placeholder="Password" />
+                            <input type="password" name="password2" placeholder="Retype password" />
+    
+                            <input type="submit" name="signup_submit" value="Sign me up" />
+                        </div>
+    
+                        <div class="right">
+                            <div class="closelogin">+</div>
+                            <span class="loginwith">Sign in with<br />social network</span>
+    
+                            <div id="my-signin2"></div>
+    
+                        </div>
+                        <div class="or">OR</div>
+                    </div>
+        </main>
+
+        <footer class="footer text-center">
+            <p>Copyright &copy; 2020 Group Up
+        </footer>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+
 </body>
+
 </html>
