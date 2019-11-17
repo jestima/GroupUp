@@ -34,11 +34,17 @@
 			<div class="modal-container">
 				<div class="close">+</div>
 				<form action="">
-					<input type="radio" name="eventType" id="Routine">
-					<input type="radio" name="eventType" id="Event">
-					<input type="radio" name="eventType" id="Workshop">
-					<input type="text" placeholder="Event Title">
-					<input type="text" placeholder="Event Description">
+					<select name="eventTypes" id="eventTps">
+						<option value="Routine">Routine</option>
+						<option value="Event">Event</option>
+						<option value="Workshop">Workshop</option>
+					</select>
+					<input type="text" placeholder="Event Title" id="eventTitle">
+					<input type="text" placeholder="Event Description" id="eventDesc">
+					Start Date:<input type="date" name="sdate" id="eventSDate">
+					End Date:<input type="date" name="sdate" id="eventEDate">
+					<input type="text" placeholder="Rua" id="eRua">
+					<input type="text" placeholder="Localidade" id="eLoc">
 
 					<input type="submit" value="Submit">
 				</form>

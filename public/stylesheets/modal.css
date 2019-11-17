@@ -12,7 +12,7 @@ p {
     border-radius:5px;
     background-color: #f4bc51;
     display: none;
-    text-align: center;
+    align-content: left;
     animation: pop-up 0.8s ease forwards;
 
 }
@@ -31,11 +31,7 @@ p {
     
 }
 
-.modal-container .input{
-    width: 50%;
-    display: block;
-    margin: 15px auto;
-}
+
 
 .close{
     position: absolute;
@@ -44,6 +40,10 @@ p {
     font-size: 42px;
     transform: rotate(45deg);
     cursor: pointer;
+}
+
+.modal form{
+  width: 100px;
 }
 .closelogin{
   position: absolute;
