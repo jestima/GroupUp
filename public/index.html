@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1,firefox=1" />
+	<title>Group Up</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+	<link href="stylesheets/MainStyle.css" rel="stylesheet" />
+
+
+	<meta name="google-signin-client_id"
+		content="825230827003-kdmpj420h2l5daf817iebmane4ksl5uu.apps.googleusercontent.com">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta name="google-signin-scope" content="profile email">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+	<link rel="stylesheet" href="stylesheets/modal.css">
+	<link rel="stylesheet" href="stylesheets/EventSearch.css">
+
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+	<script src="js/EventSearch.js"></script>
+
+</head>
+
+
+<body>
+	<!-- Modal Section -->
+	<div class="modal">
+		<div id="overlay">
+			<div class="modal-container">
+				<div class="close">+</div>
+				<form action="">
+					<select name="eventTypes" id="eventTps">
+						<option value="Routine">Routine</option>
+						<option value="Event">Event</option>
+						<option value="Workshop">Workshop</option>
+					</select>
+					<input type="text" placeholder="Event Title" id="eventTitle">
+					<input type="text" placeholder="Event Description" id="eventDesc">
+					Start Date:<input type="date" name="sdate" id="eventSDate">
+					End Date:<input type="date" name="sdate" id="eventEDate">
+					<input type="text" placeholder="Rua" id="eRua">
+					<input type="text" placeholder="Localidade" id="eLoc">
+
+					<input type="submit" value="Submit" id="submitbtn">submit</input>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+
+		<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="img/header.jpg">
+				<div class="header">
+					<div class="row header-inner">
+						<div class="col-md-6 col-12">
+							<img src="img/dontcopystrikepls.png" alt="Logo" class="site-logo" />
+							<div class="site-text-box">
+								<h1 class="site-title">Group Up</h1>
+								<h6 class="site-description">Meet people with the same hobbies</h6>
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 nav">
+							<ul class="nav-ul">
+								<li class="nav-li"><a href="index.html" class="nav-link">Home</a></li>
+								<li class="nav-li"><a href="about.html" class="nav-link">About</a></li>
+								<li class="nav-li"><a href="contact.html" class="nav-link">Contact</a></li>
+								<li class="nav-li">
+									<p class="nav-link" onclick="openSignUp()" id="mySuL">Sign Up/Login</p>
+								</li>
+								<button class="my-signout2" onclick="signOut()">Google Signout</button>
+
+
+
+								<script>
+
+									function onSuccess(googleUser) {
+										console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+
+
+										$("#login-box").css("display", "none");
+										$(".my-signout2").css("display", "block");
+										$(".createEvent").css("display", "block");
+										$('.modal').css("display", "none");
+										$('#mySuL').css("display", "none");
+									}
+									function onFailure(error) {
+										console.log(error);
+									}
+									function renderButton() {
+										gapi.signin2.render('my-signin2', {
+											'scope': 'profile email',
+											'width': 160,
+											'height': 30,
+											'longtitle': true,
+											'theme': 'dark',
+											'onsuccess': onSuccess,
+											'onfailure': onFailure
+										});
+									}
+									function signOut() {
+										var auth2 = gapi.auth2.getAuthInstance();
+										auth2.signOut().then(function () {
+											console.log('User signed out.');
+										});
+
+										alert("You have been sucessfully logged out.")
+
+										$(".my-signout2").css("display", "none");
+										$(".createEvent").css("display", "none");
+										$('#mySuL').css("display", "block");
+									}
+
+									function openSignUp() {
+										$("#login-box").css("display", "block");
+										$('.modal').css("display", "flex");
+										window.scrollTo(0, 500);
+
+									}
+
+								</script>
+								<script src="https://apis.google.com/js/platform.js?onload=renderButton" async
+									defer></script>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header class="row welcome-section">
+
+				<h2 class="col-12 text-center section-title">Welcome to Group Up</h2>
+				<p class="col-12 text-center">We believe we could bring people closer together by giving them a way
+					of
+					joining or hosting an event with other people and ultimately enjoy their hobby to the fullest,
+					all
+					the while in the presence of other like minded people.</p>
+				<div id="login-box">
+					<div class="left">
+						<h1>Sign up</h1>
+
+						<input type="text" name="username" placeholder="Username" />
+						<input type="text" name="email" placeholder="E-mail" />
+						<input type="password" name="password" placeholder="Password" />
+						<input type="password" name="password2" placeholder="Retype password" />
+
+						<input type="submit" name="signup_submit" value="Sign me up" />
+					</div>
+
+					<div class="right">
+						<div class="closelogin">+</div>
+						<span class="loginwith">Sign in with<br />social network</span>
+
+						<div id="my-signin2"></div>
+
+					</div>
+					<div class="or">OR</div>
+				</div>
+			</header>
+			<button class="createEvent" id="cEventButton">Create Event</button>
+
+
+			<script src="js/createevent.js"></script>
+
+
+			<div class="SEWrapper" id="SEWrapper">
+				<h1>Search Events</h1>
+				<div class="SECols" id="SECols">
+				</div>
+			</div>
+
+		</main>
+
+		<footer class="footer text-center">
+			<p>Copyright &copy; 2020 Group Up
+		</footer>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+	<script src="js/Events.js"></script>
+
+</body>
+
+</html>
