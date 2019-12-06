@@ -6,8 +6,11 @@ In this project we intend to create a platform for hobbyists to come together, s
 We believe we could bring people closer together by giving them a way of joining or hosting an event with other people and ultimately enjoy their hobby to the fullest, all the while in the presence of other like minded people.
 
 # Scenarios
+(Assumption for the main scenario: user is logged in successfully)
 Main scenario:
-- The main scenario relies on the functionality to create/join events. Each new user will have to register on the platform providing basic information (name, birthdate, etc), his favorite hobbies and location. After the registration, he will be able to create events. In order to do this he will have to select the “Create Event” button, this will open a window dedicated to this functionality. The user will then have to select the type of activity that he wants to create (hiking, cycling, jogging, etc) and the type of access (public or private, where only users with the event link will be able to access). Afterwards, he will be able to name the event, set its date and choose its type of schedule (routine,one-time or workshop). After the event is created, other users can see it and join it. Once an event is created our platform will convert the address given by the event host onto a map for other users to see it. The user will also be able to click on the address url to open google maps and follow the directions to the chosen place.
+- The main scenario relies on the functionality to create/join events. In order to view existing events the user has to go to the categories list (either by scrolling down or by clicking on "categories" in the navigation bar. After choosing a category by clicking it, a new page will open showing every event that belongs to the chosen category. Lastly the user has to click the "join event" button to join the said event.
+When viewing an event the user can click the "show on map" button, which provides a map with a route and directions from the user's current location to the event's location.
+ The users can also create events by clicking on the "create event" button. This will open a window with a form(event name, description, category, location and date) to fill. After properly filling the form and clicking the submit button the event will be created and shown for others to see and join.
 
 Secondary scenarios:
 - After the event ended the user will choose a rating for the event, from 1 to 5 (star rating) by clicking on the amount of stars. Then he has the option to leave a comment.
@@ -38,12 +41,6 @@ Secondary scenarios:
 | NFR03 | Responsive                           | Works in all platforms (mobile, Windows, Mac, etc).                         | LOW      |                     |
 | NFR04 | Security                             | 2 factor authentication                                                     | MEDIUM   |                     |
      
-# CRUD Matrix
-| #                | Create Event | Join Event | Search Event | Rate Event | Comment on Event | Add Friends | Chat with Friends | View Event Location |
-|------------------|--------------|------------|--------------|------------|------------------|-------------|-------------------|---------------------|
-| Aplication Layer | R            | R          | R            | R          | R                | R           | R                 | R                   |
-| Business Layer   | CR           | RUD        | RU           | CRUD       | CRUD             | CRUD        | CRD               | R                   |
-| Data Layer       | CU           | UD         |              | CU         | CUD              | CUD         | CUD               | CU                  |
 # Development Schedule
  - First prototype by 17/11/2019.
  - Alpha version of the project by 15/12/2019.
