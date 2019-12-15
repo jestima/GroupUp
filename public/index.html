@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1,firefox=1" />
+    <title>Group Up</title>
+
+    <link rel="stylesheet" href="../stylesheets/NavBar.css">
+    <link rel="stylesheet" href="../stylesheets/EventTypesInfo.css">
+    <link rel="stylesheet" href="../stylesheets/EventCategories.css">
+    <link rel="stylesheet" href="../stylesheets/CreateEventForm.css">
+    <link rel="stylesheet" href="../stylesheets/btn.css">
+    <link rel="stylesheet" href="../stylesheets/Map.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="javascripts/EventCategories.js"></script>
+    <script src="javascripts/CreateEvent.js"></script>
+    <script src="javascripts/user.js"></script>
+    <script src="javascripts/NavBar.js"></script>
+    <script src="javascripts/create-event-map.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="stylesheets/leaflet-routing-machine.css" />
+    <script src="javascripts/leaflet-routing-machine.js"></script>
+
+    <link rel="stylesheet" href="stylesheets/leaflet-control-geocoder.css">
+    <script src="javascripts/leaflet-control-geocoder.js"></script>
+
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+<body>
+    
+    <script>
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+#map {
+    min-width: 80px;
+    width: 98%;
+    min-height: 300px;
+}
+
+#mapRoute{
+    min-width: 100px;
+    min-height: 300px;
+}

@@ -1,59 +1,87 @@
-<html>
-  <head>
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="825230827003-kdmpj420h2l5daf817iebmane4ksl5uu.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<nav id="NavBar">
+    <a>HOME</a>
+    <a>ARTICLES</a>
+    <a>PORTFOLIO</a>
+    <a>ABOUT</a>
+    <a>CONTACT</a>
+</nav>
 
-
-  </head>
-  <body>
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <script>
-      function onSignIn(googleUser) {
-      
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); 
-        console.log('Full Name: ' + profile.getName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        $(".g-signin2").css("display","none");
-        $(".data").css("display","block");
-        $("#pic").attr('src',profile.getImageUrl());
-        $("#email").text(profile.getEmail());
-        $("#myfullname").text(profile.getName());
-
-
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-        
-      }
-    </script>
-    <script>
-
-      function signOut()
-      {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function(){
-          
-          alert("You have been successfully signed out");
-
-          $(".g-signin2").css("display","block");
-          $(".data").css("display","none");
-          
-        });
-      }
-    </script>
-    <div class="data">
-      <p>Profile Details</p>
-      <img id="pic" class="img-circle" width="100" height="100"/>
-      <p>Email Address</p>
-      <p id="email" class="alert alert-danger"></p>
-      <button onclick="signOut()" class="btn btn-danger">SignOut</button>
+<section id="EventTypesInfo">
+    <div class="card">
+        <div class="face face1">
+            <div class="content">
+                <img
+                    src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/design_128.png?raw=true">
+                <h3>Design</h3>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis
+                    provident at.</p>
+            </div>
+        </div>
     </div>
-  </body>
-</html>
+    <div class="card">
+        <div class="face face1">
+            <div class="content">
+                <img
+                    src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true">
+                <h3>Code</h3>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis
+                    provident at.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="face face1">
+            <div class="content">
+                <img
+                    src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/launch_128.png?raw=true">
+                <h3>Launch</h3>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis
+                    provident at.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="CreateEvent">
+    <div class="container">
+        <form id="contact" >
+            <h3>Create Events</h3>
+            <fieldset>
+                <input placeholder="Event Name" id="Name" type="text" tabindex="1" required autofocus>
+            </fieldset>
+            <fieldset>
+                <input placeholder="Description" id="Description" type="text" tabindex="2" required>
+            </fieldset>
+            <fieldset>
+                <button name="submit" type="button" id="contact-submit">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+</section>
+
+<section id="cards-wrapper">
+
+</section>
+
+<section id="EventTypes">
+    <div class="SEWrapper">
+        <h1>Search Events</h1>
+        <div class="SECols" id="SECols">
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="javascripts/EventDisplayer.js"></script>

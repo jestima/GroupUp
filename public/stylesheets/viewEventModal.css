@@ -1,0 +1,70 @@
+p {
+    margin-top:0;
+    font-size: 15px;
+}
+
+.modal-container {
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    left: 35%;
+    top: 30%;
+    padding: 20px;
+    border-radius:5px;
+    background-color: #f4bc51;
+    display: block;
+    align-content: left;
+    animation: pop-up 0.8s ease forwards;
+
+}
+
+
+.modal{
+    content: "";
+    position: fixed;
+    display: block;
+    background-color: rgba(0,0,0,.8);
+    top:0;
+    left:0;
+    height: 100%;
+    width:100%;
+    z-index: 100000;
+    
+}
+
+
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.modal form{
+  width: 100px;
+}
+.closelogin{
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 42px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+@keyframes pop-up{
+    0%{
+        opacity:0;
+        transform: translateY(1500px);
+      
+    }
+    70%{
+        opacity: 0.6;
+    }
+    100%{
+        opacity: 1;
+    }
+}
