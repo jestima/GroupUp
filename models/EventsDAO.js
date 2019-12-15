@@ -1,4 +1,4 @@
-var database = require('dbConn').pool;
+var database = require('./DbConn').pool;
 
 
 module.exports.getEventsbyCategory = function (category, callback, next) {
