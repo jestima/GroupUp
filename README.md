@@ -9,10 +9,11 @@ We believe we could bring people closer together by giving them a way of joining
 (Assumption for the main scenario: user is logged in successfully)
 Main scenario:
 - The main scenario relies on the functionality to create/join events. In order to view existing events the user has to go to the categories list (either by scrolling down or by clicking on "categories" in the navigation bar. After choosing a category by clicking it, a new page will open showing every event that belongs to the chosen category. Lastly the user has to click the "join event" button to join the said event.
-When viewing an event the user can click the "show on map" button, which provides a map with a route and directions from the user's current location to the event's location.
+When viewing an event the user can click the "View event" button, which provides more details of the event and a map with a route and directions from the user's current location to the event's location.
  The users can also create events by clicking on the "create event" button. This will open a window with a form(event name, description, category, location and date) to fill. After properly filling the form and clicking the submit button the event will be created and shown for others to see and join.
 
 Secondary scenarios:
+- Hosts are able to delete events they created.
 - After the event ended the user will choose a rating for the event, from 1 to 5 (star rating) by clicking on the amount of stars. Then he has the option to leave a comment.
 - If the user wishes he is able to sort events by type, proximity and popularity by clicking the “Sort” button.
 - The user can utilize the search bar to look for other users by writing their name.
