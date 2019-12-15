@@ -8,7 +8,6 @@ function cardsWrapperTemplate(event) {
       <div class="card-grid-space">
           <a class="card1" id="${event.id}" style="--bg-img: url(https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/html-syntax/cover.jpg)">
               <div>
-                  <button name="joinbtn" type="button" id="joinEvent${event.id}" onClick="joinEvent(this)">Join Event</button>
                   <h1>${event.name}</h1>
                   <p>${event.description}</p>
                   <button name="vieweventbtn" type="button" id="${event.id}" onClick="viewEvent(this)">View Event</button>
