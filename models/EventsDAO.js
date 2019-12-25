@@ -6,7 +6,20 @@ module.exports.getEventsbyCategory = function (category, callback, next) {
         if (err) {
             conn.release();
             next(err);
-        } else conn.query("select * from Events where category=" + category, function (err, rows) {
+        } else conn.query("select * from Events where endDate>now() AND category=" + category, function (err, rows) {
+            conn.release();
+            callback(rows);
+
+        })
+    })
+}
+
+module.exports.getEvents = function (callback, next) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        } else conn.query("select * from Events WHERE endDate>now()", function (err, rows) {
             conn.release();
             callback(rows);
 
@@ -107,7 +120,7 @@ module.exports.getEventbyId = function (id, callback, next) {
         if (err) {
             conn.release();
             next(err);
-        } else conn.query("select * from Events where id=" + id, function (err, rows) {
+        } else conn.query("select * from Events where endDate>now() AND id=" + id, function (err, rows) {
             conn.release();
             callback(rows);
 
@@ -123,6 +136,103 @@ module.exports.getEventLocation = function (id, callback, next) {
         } else conn.query("select ST_X(latlon) as lat, ST_Y(latlon) as lon from Events where id=" + id, function (err, rows) {
             conn.release();
             callback(rows);
+
+        })
+    })
+}
+
+
+module.exports.deleteEvent = function (id, callback, next) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        } else conn.query("delete from Events where id=" + id, function (err, rows) {
+            conn.release();
+            callback({ msg: "okeh" });
+
+        })
+    })
+}
+
+module.exports.deleteGroup = function (id, callback, next) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        } else conn.query("delete from EventGroup where idEvent=" + id, function (err, rows) {
+            conn.release();
+            callback({ msg: "okeh" });
+
+        })
+    })
+}
+
+
+module.exports.getUserPref = function (id, callback, next) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        } else conn.query("SELECT * FROM `UserPreferences` where idUser=" + id, function (err, rows) {
+            conn.release();
+            callback(rows);
+
+        })
+    })
+}
+
+module.exports.postUserPref = function (idUser, idCat, callback, next) {
+    var idsCat = idCat.split(" ")
+
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        } else {
+            for (i in idsCat) {
+                conn.query("INSERT INTO `UserPreferences`(`idCat`, `idUser`) VALUES (" + idsCat[i] + "," + idUser + ")")
+            }
+            conn.release
+            callback({ msg: "boas" })
+        }
+    })
+}
+
+module.exports.resetUserPref = function (id, callback, next) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        } else conn.query("delete from UserPreferences where idUser=" + id, function (err, rows) {
+            conn.release();
+            callback({ msg: "okeh" });
+
+        })
+    })
+}
+
+module.exports.getUserInfo = function (id, callback, next) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        } else conn.query("SELECT * FROM `Users` where id=" + id, function (err, rows) {
+            conn.release();
+            callback(rows);
+
+        })
+    })
+}
+
+module.exports.updateLocation = function (lat,lon,id, callback, next) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        } else conn.query("UPDATE `Users` SET `latlon`= ST_POINTFROMTEXT('POINT(" + lat + " " + lon + ")') WHERE id=" + id, function (err, rows) {
+            conn.release();
+            callback({ msg: "okeh" });
 
         })
     })

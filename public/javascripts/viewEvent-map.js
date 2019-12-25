@@ -5,11 +5,6 @@ var eventLat;
 var eventLon;
 var map
 
-function getPosition(position) {
-    myLat = position.coords.latitude;
-    myLon = position.coords.longitude
-}
-
 
 function loadMap() {
     if (myLat != undefined) {
@@ -48,7 +43,7 @@ function showRoute() {
         url: "api/Events/" + eventId + "/Location",
         type: "get",
         success: function (result) {
-            var waypoints = [L.latLng(myLat, myLon),L.latLng(result[0].lat, result[0].lon)];
+            var waypoints = [L.latLng(myLat, myLon), L.latLng(result[0].lat, result[0].lon)];
             control = L.Routing.control({
                 routeWhileDragging: true,
                 waypoints: waypoints,

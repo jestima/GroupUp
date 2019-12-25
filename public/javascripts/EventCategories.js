@@ -22,7 +22,6 @@ function loadPageTemplate(){
                 <li><a href="#EventTypes">Event Categories</a></li>
                 <li><a href="#AboutUs">About Us</a></li>
                 <li><a href="#Contact">Contact</a></li>
-                <li id="navsign"></li>
 
             </ul>
         </div>

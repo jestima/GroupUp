@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1,firefox=1" />
+    <title>Group Up</title>
+
+    <link rel="stylesheet" href="../stylesheets/NavBar.css">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Group Up</a>
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+
+                    <li><a href="index.html#EventTypesInfoSection">Event Types</a></li>
+                    <li><a href="index.html#EventTypes">Event Categories</a></li>
+                    <li><a href="index.html#AboutUs">About Us</a></li>
+                    <li><a href="#ContactFooter">Contact</a></li>
+
+
+                </ul>
+            </div>
+            <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
+    </nav>
+
+    <header>
+        <img src="/images/Header.jpg" alt="">
+    </header>
+    <main>
+        <section id="Profile">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnSt5jPvWxdSxdWWG0awa1GNASL1rusCK4AstwkMR3b9-rDx8Xtg&s" alt="Profile-img">
+            <p id="Profile-username"></p>
+            <p id="Profile-email"></p>
+            <p id="Profile-location"></p>
+            
+            <form id="prefForm">
+            </form>
+            <button id="prefBtn" onclick="updatePref()">Save Preferences</button>
+        </section>
+    </main>
+
+    <footer id="ContactFooter">
+        <h1>
+            Contacts
+        </h1>
+        <p>This project was created by Manuel Beijinho and Bruno Ramos</p>
+        <p>Universidade Europeia | Iade | 2019</p>
+    </footer>
+
+
+    <script src="javascripts/user.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="javascripts/NavBar.js"></script>
+    <script src="javascripts/Profile.js"></script>
+    <script>
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+    </script>
+
+</body>

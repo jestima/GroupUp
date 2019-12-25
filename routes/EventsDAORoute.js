@@ -8,6 +8,12 @@ router.get("/Events/Categories", function(req, res, next) {
     }, next);
 });
 
+router.get("/Events", function(req, res, next) {
+    EventsDAO.getEvents(function(result) {
+        res.send(result);
+    }, next);
+});
+
 router.get("/Events/Categories/:category", function(req, res, next) {
     EventsDAO.getEventsbyCategory(
         req.params.category,
@@ -82,6 +88,26 @@ router.post("/Events/Group/Leave", function(req, res, next) {
     );
 });
 
+router.post("/Events/Delete", function(req, res, next) {
+    EventsDAO.deleteEvent(
+        req.body.idEvent,
+        function(result) {
+            res.send(result);
+        },
+        next
+    );
+});
+
+router.post("/Events/DeleteGroup", function(req, res, next) {
+    EventsDAO.deleteGroup(
+        req.body.idEvent,
+        function(result) {
+            res.send(result);
+        },
+        next
+    );
+});
+
 router.get("/Events/Group/:userId", function(req, res, next) {
     EventsDAO.getEventsbyUser(
         req.params.userId,
@@ -111,5 +137,60 @@ router.get("/Events/:eventId/Location", function(req, res, next) {
         next
     );
 });
+
+router.get("/Users/:userId/Preferences", function(req, res, next) {
+    EventsDAO.getUserPref(
+        req.params.userId,
+        function(result) {
+            res.send(result);
+        },
+        next
+    );
+});
+
+router.post("/Users/User/Preferences", function(req, res, next) {
+    EventsDAO.postUserPref(
+        req.body.idUser,
+        req.body.idCat,
+        function(result) {
+            res.send(result);
+        },
+        next
+    );
+});
+
+router.post("/Users/User/Preferences/Reset", function(req, res, next) {
+    EventsDAO.resetUserPref(
+        req.body.idUser,
+        function(result) {
+            res.send(result);
+        },
+        next
+    );
+});
+
+router.get("/Users/:userId", function(req, res, next) {
+    EventsDAO.getUserInfo(
+        req.params.userId,
+        function(result) {
+            res.send(result);
+        },
+        next
+    );
+});
+
+router.post("/Users/User/latlon/Update", function(req, res, next) {
+    EventsDAO.updateLocation(
+        req.body.lat,
+        req.body.lon,
+        req.body.idUser,
+        function(result) {
+            res.send(result);
+        },
+        next
+    );
+});
+
+
 
 module.exports = router;
