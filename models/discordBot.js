@@ -1,5 +1,6 @@
-//const { prefix, token } = require('./chatConfig.json')
+const prefix = "!"
 const Discord = require('discord.js');
+require('dotenv').config()
 var client = new Discord.Client();
 
 
@@ -90,6 +91,6 @@ async function createRole(receivedMessage, argumentsString) {
 
 }
 
-//client.login(token);
+client.login(process.env.myBOT_TOKEN);
 
 exports.client = client;

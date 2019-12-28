@@ -185,7 +185,10 @@ function createEvent() {
                 eventName: eventName
             },
             success: function (result) {
-                console.log("Boas")
+                console.log(result)
+            },
+            error: function(result){
+                console.log(result)
             }
         })
         $.ajax({
