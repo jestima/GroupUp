@@ -171,7 +171,7 @@ function createEvent() {
     var eventCategory = sessionStorage.getItem("OptionCategoryId")
 
     var host = sessionStorage.getItem("userId");
-    
+
 
     if (verifyTextboxes(eventName, eventDescription) == true && verifyDates(startDate, endDate) == true && verifyCoordinates(eventLat, eventLon) && startTime != "" && endTime != "") {
         var sD = new Date(startDate)
@@ -196,6 +196,18 @@ function createEvent() {
             success: function (res, status) {
                 alert("Event successfully created!")
                 window.location.href = "index.html"
+
+                $.ajax({
+                    url: "api/Discord/CreateChannel",
+                    type: "post",
+                    data: {
+                        eventName: eventName
+                    },
+                    success: function (result) {
+
+                    }
+                })
+
             },
             error: function () {
 

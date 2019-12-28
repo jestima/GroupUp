@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="stylesheets/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        .map {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map" class="map"></div>
+    <script>
+        navigator.geolocation.getCurrentPosition(getPosition)
+        var myLat;
+        var myLon;
+        function getPosition(position) {
+            L.marker(position.coords.latitude, position.coords.longitude)
+            myLat = position.coords.latitude;
+            myLon = position.coords.longitude
+        }
+        $(document).ready(function () {
+            var map = L.map('map').setView([20, 20  ], 12);
+            L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            L.Control.geocoder().addTo(map);
+            function createButton(label, container) {
+                var btn = L.DomUtil.create('button', '', container);
+                btn.setAttribute('type', 'button');
+                btn.innerHTML = label;
+                return btn;
+            }
+            var waypoints = [L.latLng(myLat, myLon)];
+            map.on('click', function (e) {
+                var container = L.DomUtil.create('div'),
+                    destBtn = createButton('Go to this location', container);
+                if (waypoints.length == 1) {
+                    waypoints.push(L.latLng(e.latlng.lat, e.latlng.lng))
+                    control = L.Routing.control({
+                        routeWhileDragging: true,
+                        waypoints: waypoints,
+                        geocoder: L.Control.Geocoder.nominatim()
+                    }).addTo(map);
+                }
+                L.popup()
+                    .setContent(container)
+                    .setLatLng(e.latlng)
+                    .openOn(map);
+                L.DomEvent.on(destBtn, 'click', function () {
+                    control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
+                    map.closePopup();
+                    
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

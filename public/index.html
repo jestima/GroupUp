@@ -22,6 +22,7 @@
     <script src="javascripts/NavBar.js"></script>
     <script src="javascripts/create-event-map.js"></script>
 
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
 
@@ -35,12 +36,123 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+        new Crate({
+            server: '659906618745683975',
+            channel: '659906618745683978',
+            shard: 'https://e.widgetbot.io',
+            glyph: ['https://static.vecteezy.com/system/resources/previews/000/437/500/non_2x/vector-chat-icon.jpg', '100%']
+        })
+    </script>
 
 </head>
 
 <body>
-    
+    <nav class="nav" id="navbar"></nav>
+
+    <header>
+        <img src="/images/Header.jpg" alt="">
+    </header>
+
+    <section id="EventTypesInfoSection">
+        <h1>Our types of events</h1>
+        <div id="EventTypesInfo">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img
+                            src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/design_128.png?raw=true" />
+                        <h3>One-Time</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Events that occur once and are disabled
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img
+                            src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true" />
+                        <h3>Routines</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Events that occur on a schedule
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img
+                            src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/launch_128.png?raw=true" />
+                        <h3>Workshops</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Events that are professional or semi-professional and are paid
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="box" class="box"></div>
+
+
+
+    <section id="EventTypes">
+        <div class="SEWrapper" id="SEWrapper">
+            <h1>Search Events</h1>
+            <div class="SECols" id="SECols"></div>
+        </div>
+    </section>
+
+    <section id="AboutUs">
+        <h1>About Us</h1>
+        <p>
+            Social media is increasing exponentially in the lives of children, teenagers and adults. It allows family
+            and friends to stay connected through the internet without the need to physically move to each other.
+            Because of this ease of access, social media
+            has been growing immensely in popularity and doesn't seem to be stopping any time soon. To accommodate this
+            rising number of users many companies are creating more platforms, each with their own creative twist.
+        </p>
+        <p>
+            In this project we intend to create a platform for hobbyists to come together, share or learn more about
+            their hobbies, whatever they may be. One example of this type of platform is meetup​. On this website you
+            can create events for people to sign up
+            and meet.
+        </p>
+        <p>
+            We believe we could bring people closer together by giving them a way of joining or hosting an event with
+            other people and ultimately enjoy their hobby to the fullest, all the while in the presence of other like
+            minded people.
+        </p>
+    </section>
+
+    <footer id="ContactFooter">
+        <iframe src="https://discordapp.com/widget?id=659906618745683975&theme=dark" width="300" height="400"
+            allowtransparency="true" frameborder="0"></iframe>
+        <h1>
+            Contacts
+        </h1>
+        <p>This project was created by Manuel Beijinho and Bruno Ramos</p>
+        <p>Universidade Europeia | Iade | 2019</p>
+
+    </footer>
+    <section id="CreateEvent"></section>
     <script>
         $(window).scroll(function () {
             if ($(document).scrollTop() > 50) {
@@ -50,6 +162,8 @@
             }
         });
     </script>
+
+
 </body>
 
 </html>
