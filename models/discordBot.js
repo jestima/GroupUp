@@ -1,4 +1,4 @@
-const { prefix, token } = require('./chatConfig.json')
+//const { prefix, token } = require('./chatConfig.json')
 const Discord = require('discord.js');
 var client = new Discord.Client();
 
@@ -90,6 +90,6 @@ async function createRole(receivedMessage, argumentsString) {
 
 }
 
-client.login(token);
+//client.login(token);
 
 exports.client = client;
