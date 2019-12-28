@@ -179,6 +179,16 @@ function createEvent() {
         var sDate = sD.getFullYear() + "-" + (sD.getMonth() + 1) + "-" + sD.getDate()
         var eDate = eD.getFullYear() + "-" + (eD.getMonth() + 1) + "-" + eD.getDate()
         $.ajax({
+            url: "/api/Discord/CreateChannel",
+            type: "post",
+            data: {
+                eventName: eventName
+            },
+            success: function (result) {
+                console.log("Boas")
+            }
+        })
+        $.ajax({
             url: "/api/Events/Create",
             method: "post",
             data: {
@@ -194,19 +204,12 @@ function createEvent() {
                 endTime: endTime
             },
             success: function (res, status) {
+
+
+
+
                 alert("Event successfully created!")
                 window.location.href = "index.html"
-
-                $.ajax({
-                    url: "api/Discord/CreateChannel",
-                    type: "post",
-                    data: {
-                        eventName: eventName
-                    },
-                    success: function (result) {
-
-                    }
-                })
 
             },
             error: function () {
