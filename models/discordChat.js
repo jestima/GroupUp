@@ -90,9 +90,9 @@ async function createRole(receivedMessage, argumentsString) {
 
 }
 
-module.exports.createChannel = function (eventName) {
+module.exports.createChannel = function (eventName, callback, next) {
     client.channels.get('660188056648679437').send(`!createRole "${eventName}"`)
-    callback({msg: "sucesso"})
+    callback({ msg: "sucesso" })
 
 }
 
