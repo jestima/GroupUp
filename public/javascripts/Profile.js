@@ -2,9 +2,9 @@ window.onload = function () {
     renderNav()
     this.loadCategories()
     this.loadPInfo()
+    this.linkDiscord()
 
 };
-
 
 function loadCategories() {
     var categoriesOptions = document.getElementById("prefForm");
@@ -182,4 +182,56 @@ function saveLocation(lat, lon) {
 
         }
     });
+}
+
+function linkDiscord() {
+    if (window.location.href.indexOf("code=") > -1) {
+        var code = window.location.href.substring(window.location.href.indexOf("="))
+        code = code.substring(1)
+        const redirect = 'http://localhost:3000/Profile.html'
+        var token = ""
+        var discId = ""
+        var userId = sessionStorage.getItem("userId")
+        $.ajax({
+            url: `https://discordapp.com/api/oauth2/token`,
+            type: "post",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data: {
+                'client_id': '660148456614264834',
+                'client_secret': 'jT8iXtixMzCPyWHpfIfetHVDv7Nvdjrs',
+                'grant_type': 'authorization_code',
+                'code': code,
+                'redirect_uri': redirect,
+                'scope': 'identify'
+            },
+
+            success: function (result) {
+                token = result.access_token
+                $.ajax({
+                    url: "https://discordapp.com/api/users/@me",
+                    type: "get",
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    success: function (result) {
+                        discId = result.id
+                        $.ajax({
+                            url: "api/Users/User/Discord",
+                            type: "post",
+                            data: {
+                                discId: discId,
+                                userId: userId
+                            },
+                            success: function (result) {
+                                alert("Successfully linked with Discord. If you are already on our Discord server you can go to 'My Events' and click 'Get Discord Roles' button.")
+                            }
+                        })
+                    }
+                })
+            }
+        })
+
+    }
 }

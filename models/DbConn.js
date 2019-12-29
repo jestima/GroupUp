@@ -7,4 +7,5 @@ var pool = mysql.createPool({
     password: process.env.DB_PASS,
     database: 'EFrCxDdGao'
 });
+
 exports.pool = pool;

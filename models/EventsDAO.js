@@ -184,7 +184,6 @@ module.exports.getUserPref = function (id, callback, next) {
 
 module.exports.postUserPref = function (idUser, idCat, callback, next) {
     var idsCat = idCat.split(" ")
-
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
@@ -225,12 +224,25 @@ module.exports.getUserInfo = function (id, callback, next) {
     })
 }
 
-module.exports.updateLocation = function (lat,lon,id, callback, next) {
+module.exports.updateLocation = function (lat, lon, id, callback, next) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
             next(err);
         } else conn.query("UPDATE `Users` SET `latlon`= ST_POINTFROMTEXT('POINT(" + lat + " " + lon + ")') WHERE id=" + id, function (err, rows) {
+            conn.release();
+            callback({ msg: "okeh" });
+
+        })
+    })
+}
+
+module.exports.linkDiscord = function (discId, userId, callback, next) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        } else conn.query("UPDATE `Users` SET `discId`=" + discId + " WHERE id=" + userId, function (err, rows) {
             conn.release();
             callback({ msg: "okeh" });
 

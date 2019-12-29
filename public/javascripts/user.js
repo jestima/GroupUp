@@ -61,7 +61,7 @@ function login() {
         },
         success: function (result) {
             if (result != 0) {
-                alert("Successfully signed in. Welcome "+result[0].name)
+                alert("Successfully signed in. Welcome " + result[0].name)
                 window.location = "index.html"
                 sessionStorage.setItem("userId", result[0].id)
                 sessionStorage.setItem("isLogged", "true")

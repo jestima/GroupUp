@@ -9,13 +9,13 @@
 
     <link rel="stylesheet" href="../stylesheets/NavBar.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
         new Crate({
             server: '299881420891881473',
             channel: '355719584830980096',
             shard: 'https://disweb.dashflo.net'
         })
-    </script>
+    </script> -->
 </head>
 
 <body>
@@ -48,15 +48,17 @@
     </header>
     <main>
         <section id="Profile">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnSt5jPvWxdSxdWWG0awa1GNASL1rusCK4AstwkMR3b9-rDx8Xtg&s" alt="Profile-img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnSt5jPvWxdSxdWWG0awa1GNASL1rusCK4AstwkMR3b9-rDx8Xtg&s"
+                alt="Profile-img">
             <p id="Profile-username"></p>
             <p id="Profile-email"></p>
             <p id="Profile-location"></p>
-            
+
             <form id="prefForm">
             </form>
             <button id="prefBtn" onclick="updatePref()">Save Preferences</button>
         </section>
+        <button id="dlinkbtn" onclick="dLink()">Link with Discord</button>
     </main>
 
     <footer id="ContactFooter">
@@ -72,6 +74,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="javascripts/NavBar.js"></script>
     <script src="javascripts/Profile.js"></script>
+    <script src="javascripts/linkdiscord.js"></script>
     <script>
         $(window).scroll(function () {
             if ($(document).scrollTop() > 50) {

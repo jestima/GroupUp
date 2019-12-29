@@ -5,7 +5,7 @@ window.onload = function () {
     renderNav()
     this.renderCreate()
     getEventCategories()
-    
+
 
 };
 function loadPage() {
@@ -26,7 +26,7 @@ function loadPageTemplate() {
                 <li><a href="#EventTypesInfoSection">Event Types</a></li>
                 <li><a href="#EventTypes">Event Categories</a></li>
                 <li><a href="#AboutUs">About Us</a></li>
-                <li><a href="#Contact">Contact</a></li>
+                <li><a href="#ContactFooter">Contact</a></li>
 
             </ul>
         </div>

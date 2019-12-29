@@ -10,6 +10,9 @@ client.on('message', (receivedMessage) => {
         processCommand(receivedMessage)
     }
 })
+client.on('guildMemberAdd', (member) => {
+    member.send(`Welcome to Group Up Discord Server, <@${member.id}>. Here you can chat with other users and also have private access to your favorite event's channels. If you already have linked your Discord account on our website, you can go to 'My Events' page and click the 'Get Discord Roles' button. It's all automatic!`)
+})
 
 client.on('ready', () => {
 
@@ -70,7 +73,7 @@ async function giveRoleCommand(receivedMessage, argumentsString) {
     let role = receivedMessage.guild.roles.find(r => r.name === extractFirstText(argumentsString))
     if (!role) {
         receivedMessage.author.send(`Hey there <@${receivedMessage.author.id}>, the event name you typed is either misspelled or doesn't exist.`)
-    } else if (receivedMessage.author.id == receivedMessage.mentions.members.first().id) {
+    } else if (/*.author.id == receivedMessage.mentions.members.first().id*/ receivedMessage.author.bot) {
         let member = receivedMessage.mentions.members.first();
         member.addRole(role).catch(console.error)
     } else {
