@@ -7,9 +7,14 @@ module.exports.createChannel = function (eventName, callback, next) {
 }
 
 module.exports.giveRoles = function (discId, joinedEventNames, callback, next) {
-    for (i in joinedEventNames) {
-        client.channels.get('660188056648679437').send(`!giverole <@${discId}> "${joinedEventNames[i]}"`)
+    if (joinedEventNames.constructor === Array) {
+        for (i in joinedEventNames) {
+            client.channels.get('660188056648679437').send(`!giverole <@${discId}> "${joinedEventNames[i]}"`)
+        }
+    } else {
+        client.channels.get('660188056648679437').send(`!giverole <@${discId}> "${joinedEventNames}"`)
     }
+
     callback("OK")
 }
 

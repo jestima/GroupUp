@@ -12,6 +12,8 @@ client.on('message', (receivedMessage) => {
 })
 client.on('guildMemberAdd', (member) => {
     member.send(`Welcome to Group Up Discord Server, <@${member.id}>. Here you can chat with other users and also have private access to your favorite event's channels. If you already have linked your Discord account on our website, you can go to 'My Events' page and click the 'Get Discord Roles' button. It's all automatic!`)
+    let role = member.guild.roles.find(r => r.name === "Group Up User")
+    member.addRole(role).catch(console.error)
 })
 
 client.on('ready', () => {
@@ -59,7 +61,7 @@ function createCommand(arguments, argumentsString, receivedMessage) {
             ]
         })
             .then(channel => {
-                let category = server.channels.find(c => c.name == "Eventos" && c.type == "category");
+                let category = server.channels.find(c => c.name == "🔥Eventos🔥" && c.type == "category");
 
                 if (!category) throw new Error("Category channel does not exist");
                 channel.setParent(category.id);
