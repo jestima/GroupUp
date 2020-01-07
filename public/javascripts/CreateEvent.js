@@ -65,7 +65,6 @@ function showCreateEvent() {
 
     document.getElementById('CreateEvent').innerHTML = formTemplate()
     loadCategoriesOptions()
-    loadMap()
     document.getElementById('contact-submit').addEventListener('click', createEvent)
     document.getElementById('CreateEvent').style.display = "block";
     sessionStorage.setItem("OptionCategoryId", 1)
@@ -92,6 +91,7 @@ function showCreateEvent() {
             }
         });
     });
+    loadMap()
     window.scrollTo(0, document.body.scrollHeight);
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
