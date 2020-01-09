@@ -187,7 +187,7 @@ function createEvent() {
             success: function (result) {
                 console.log(result)
             },
-            error: function(result){
+            error: function (result) {
                 console.log(result)
             }
         })

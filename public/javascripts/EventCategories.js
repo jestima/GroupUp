@@ -47,7 +47,7 @@ function getClickedEventCategory(Data) {
 
 function getEventCategories() {
     $.ajax({
-        url: "api/Events/Categories",
+        url: "/api/Events/Categories",
         type: "get",
         success: function (result) {
             for (event in result)

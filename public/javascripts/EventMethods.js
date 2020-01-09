@@ -25,7 +25,7 @@ function leaveEvent(data) {
     idUser = sessionStorage.getItem("userId")
     $.ajax({
         url: "/api/Events/Group/Leave",
-        method: "post",
+        method: "delete",
         data: {
             idEvent: idEvent,
             idUser: idUser
@@ -45,37 +45,41 @@ function deleteEvent(data) {
     idEvent = id.replace("deleteEvent", "")
     var cPopup = confirm("You want to delete this event! Are you sure?")
     if (cPopup == true) {
+        /* $.ajax({
+             url: "/api/Events/DeleteGroup",
+             method: "post",
+             data: {
+                 idEvent: idEvent,
+             },
+             success: function (res, status) {*/
         $.ajax({
-            url: "/api/Events/DeleteGroup",
-            method: "post",
+            url: "/api/Events/Delete",
+            method: "delete",
             data: {
                 idEvent: idEvent,
             },
             success: function (res, status) {
-                $.ajax({
-                    url: "/api/Events/Delete",
-                    method: "post",
-                    data: {
-                        idEvent: idEvent,
-                    },
-                    success: function (res, status) {
-                        alert("Successfully deleted the event!")
-                        location = location
-                    },
-                    error: function () {
-
-                    }
-                });
+                alert("Successfully deleted the event!")
+                location = location
             },
             error: function () {
 
             }
         });
+        /*  },
+          error: function () {
+
+          }
+      });*/
 
     } else {
 
     }
 
+}
+
+function updateExpired(){
+    
 }
 
 

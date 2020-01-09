@@ -95,33 +95,33 @@ function updatePref() {
             idCat += checkboxes[i].id + " "
         }
     }
-    $.ajax({
+    /*$.ajax({
         url: "/api/Users/User/Preferences/Reset",
         method: "post",
         data: {
             idUser: idUser
         },
+        success: function (res, status) {*/
+    $.ajax({
+        url: "/api/Users/User/Preferences",
+        method: "post",
+        data: {
+            idUser: idUser,
+            idCat: idCat,
+        },
         success: function (res, status) {
-            $.ajax({
-                url: "/api/Users/User/Preferences",
-                method: "post",
-                data: {
-                    idUser: idUser,
-                    idCat: idCat,
-                },
-                success: function (res, status) {
-                    alert("Preferences updated!")
-                    location = location
-                },
-                error: function () {
-
-                }
-            });
+            alert("Preferences updated!")
+            location = location
         },
         error: function () {
 
         }
     });
+    /* },
+     error: function () {
+
+     }
+ });*/
 
 }
 
@@ -167,8 +167,8 @@ function saveLocation(lat, lon) {
     var idUser = sessionStorage.getItem("userId")
 
     $.ajax({
-        url: "/api/Users/User/latlon/Update",
-        method: "post",
+        url: "/api/Users/User/latlon",
+        method: "put",
         data: {
             idUser: idUser,
             lat: lat,
