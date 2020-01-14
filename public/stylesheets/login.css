@@ -117,6 +117,19 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     /* IE9 Compat Modes */
     src: local("Poppins Black"), local("Poppins-Black"), url("../fonts/poppins/poppins-v5-latin-900.eot?#iefix") format("embedded-opentype"), url("../fonts/poppins/poppins-v5-latin-900.woff2") format("woff2"), url("../fonts/poppins/poppins-v5-latin-900.woff") format("woff"), url("../fonts/poppins/poppins-v5-latin-900.ttf") format("truetype"), url("../fonts/poppins/poppins-v5-latin-900.svg#Poppins") format("svg");
     /* Legacy iOS */ }
+
+
+  #loginReturn{
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "Poppins";
+  }
+
+  #loginReturn:hover{
+    color: blue;
+  }
+
   a:focus, a:active {
     text-decoration: none;
     outline: none;

@@ -3,6 +3,19 @@ p {
     font-size: 15px;
 }
 
+.modal{
+    content: "";
+    position: fixed;
+    display: block;
+    background-color: rgba(0,0,0,.8);
+    top:0;
+    left:0;
+    height: 100%;
+    width:100%;
+    z-index: 100000;
+    
+}
+
 .modal-container {
     position: absolute;
     width: 600px;
@@ -17,22 +30,6 @@ p {
     animation: pop-up 0.8s ease forwards;
 
 }
-
-
-.modal{
-    content: "";
-    position: fixed;
-    display: block;
-    background-color: rgba(0,0,0,.8);
-    top:0;
-    left:0;
-    height: 100%;
-    width:100%;
-    z-index: 100000;
-    
-}
-
-
 
 .close{
     position: absolute;

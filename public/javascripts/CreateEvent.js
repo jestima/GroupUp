@@ -17,6 +17,15 @@ function loadCategoriesOptions() {
         }
     })
 }
+
+function renderCreate() {
+    if (checkState() == true) {
+        document.getElementById('box').innerHTML = '<a class="btn btn-white btn-animation-1" id="btnid">Create an event!</a>'
+        document.getElementById("btnid").addEventListener('click', showCreateEvent)
+        document.getElementById('box').style.display = "block"
+    }
+}
+
 function formTemplate() {
     return `
     <div class="containerCreateEvent">
@@ -92,14 +101,15 @@ function showCreateEvent() {
         });
     });
     loadMap()
-    window.scrollTo(0, document.body.scrollHeight);
+    
+   /* window.scrollTo(0, document.body.scrollHeight);
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
 
         // if any scroll is attempted, set this to the previous value 
         window.onscroll = function () {
             window.scrollTo(scrollLeft, scrollTop);
-        };
+        };*/
 }
 
 
@@ -150,13 +160,7 @@ function verifyCoordinates(lat, lon) {
 function getClickedOptionCategory(Data) {
     sessionStorage.setItem("OptionCategoryId", Data[Data.selectedIndex].id);
 }
-function renderCreate() {
-    if (checkState() == true) {
-        document.getElementById('box').innerHTML = '<a href="#CreateEvent" class="btn btn-white btn-animation-1" id="btnid">Create an event!</a>'
-        document.getElementById("btnid").addEventListener('click', showCreateEvent)
-        document.getElementById('box').style.display = "flex"
-    }
-}
+
 
 function createEvent() {
     var startDate = document.getElementById('startdatepicker').value;
@@ -223,8 +227,10 @@ function createEvent() {
     }
 
 }
+
+/*
 function enableScroll() {
     window.onscroll = function () {
     };
     $("#CreateEvent").empty()
-} 
+} */
