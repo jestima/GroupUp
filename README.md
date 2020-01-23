@@ -25,22 +25,23 @@ Secondary scenarios:
 - Advertiser: Anyone with interest in advertising his own workshop on the page.
 
  # Functional and non functional requirements
- | #     | Requirement                          | Description                                                                 | Priority | Schedule (deadline) |
-|-------|--------------------------------------|-----------------------------------------------------------------------------|----------|---------------------|
-| FR01  | Create event                         | User creates events for others to join.                                     | HIGH     | 9/11/2019           |
-| FR02  | Join event                           | Users are able to join events.                                              | HIGH     | 15/11/2019          |
-| FR03  | Search event                         | Users can search events by name or type.                                    | LOW      |                     |
-| FR04  | Rate event                           | Users are able to rate events after attending.                              | LOW      |                     |
-| FR05  | Comment on event                     | Users are able to leave a comment on the event.                             | LOW      |                     |
-| FR06  | Add friends                          | Users are able to add friends.                                              | MEDIUM   | 24/12/2019          |
-| FR07  | Chat with friends                    | Users are able to chat with friends.                                        | MEDIUM   | 02/01/2020          |
-| FR08  | View event location (and directions) | Users can view the location of the event on the map and get its directions. | HIGH     | 20/12/2019          |
-| FR09  | Database creation                    | Create a simple database to support the website.                            | HIGH     | 15/11/2019          |
-| FR10  | Database connection                  | Connect mySQL to server.                                                    | HIGH     | 16/11/2019          |
-| NFR01 | W3C                                  | All data in three clicks.                                                   | HIGH     | 15/01/2020          |
-| NFR02 | User friendly                        | Interface easy to manipulate.                                               | HIGH     |                     |
-| NFR03 | Responsive                           | Works in all platforms (mobile, Windows, Mac, etc).                         | LOW      |                     |
-| NFR04 | Security                             | 2 factor authentication                                                     | MEDIUM   |                     |
+ | # | Requirement | Description | Priority |
+|-------|--------------------------------------|------------------------------------------------------------------|----------|
+| FR01 | Create event | Users can create events | HIGH |
+| FR02 | Join event | Users can join premade events | HIGH |
+| FR03 | Search event | Users can search for events | MEDIUM |
+| FR04 | Rate event | Users can rate joined events | LOW |
+| FR05 | Delete event | Users can delete their events | MEDIUM |
+| FR06 | Event chatroom | Users can join the events chatroom | MEDIUM |
+| FR07 | View event location (and directions) | Users can view the location of the event and see the route to it | HIGH |
+| FR08 | Edit event | Users can edit their own events | LOW |
+| FR09 | View profile | Users can view their profile | MEDIUM |
+| FR10 | Edit preferences | Users can edit their preferences on their profile | LOW |
+| NFR01 | Responsive | Works in all platforms (mobile, Windows, Mac, etc) | LOW |
+| NFR02 | Maintainability | Easy to maintain | MEDIUM |
+| NFR03 | W3C | Web in 3 clicks | HIGH |
+| NFR04 | Performance | Fast response times and well implemented | HIGH |
+| NFR05 | User friendly | Easy interface to navigate and understand | MEDIUM |
      
 # Development Schedule
  - First prototype by 17/11/2019.
