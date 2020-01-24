@@ -18,3 +18,28 @@
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
   }
+
+  #CreateEventbtn{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+
+  .CreateEventCloseBtn{
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    transform: rotate(45deg);
+    border: none;
+    background: none;
+  }
+
+  .CreateEventCloseBtn:hover{
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    transform: rotate(45deg);
+    border: none;
+    background: none;
+    color:#ff3300;
+  }
