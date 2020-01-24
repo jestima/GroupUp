@@ -1,3 +1,4 @@
+Atualizado para 24/01/2020
 # Group Up
 Social media is increasing exponentially in the lives of children, teenagers and adults. It allows family and friends to stay connected through the internet without the need to physically move to each other. Because of this ease of access, social media has been growing immensely in popularity and doesn't seem to be stopping any time soon. To accommodate this rising number of users many companies are creating more platforms, each with their own creative twist. 
 
