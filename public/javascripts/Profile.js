@@ -211,8 +211,8 @@ function linkDiscord() {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             data: {
-                'client_id': process.env.client_id,
-                'client_secret': process.env.client_secret,
+                'client_id': 660148456614264834,
+                'client_secret': jT8iXtixMzCPyWHpfIfetHVDv7Nvdjrs,
                 'grant_type': 'authorization_code',
                 'code': code,
                 'redirect_uri': redirect,
