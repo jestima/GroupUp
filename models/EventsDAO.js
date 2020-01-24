@@ -249,7 +249,7 @@ module.exports.updateLocation = function (lat, lon, id, callback) {
             callback(err, { code: 500, status: "Error connecting to database." }) 
             return
         } else {
-            conn.query("UPDATE `Users` SET `latlon`= ST_POINTFROMTEXT('POINT(" + lat + " " + lon + ")') WHERE id=?", id, function (err, rows) {
+            conn.query("UPDATE `Users` SET `latlon`= ST_POINTFROMTEXT('POINT(" + lat + " " + lon + ")'), `distrito`='"+distrito+"' WHERE id=?", id, function (err, rows) {
                 conn.release();
                 callback({ msg: "okeh" });
 
