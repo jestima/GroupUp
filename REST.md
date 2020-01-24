@@ -3,9 +3,13 @@
 *api/Events/*
 * Method  
 *get*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*
   * Result:
+
   ```json
   [{
     "id": 80,
@@ -30,6 +34,9 @@
 *api/Events/Categories*
 * Method  
 *get*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*
   * Result:
@@ -82,6 +89,9 @@ eventLon = [string]
 host = [string]  
 startTime = [string]  
 endTime = [string]*  
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   
@@ -93,6 +103,9 @@ endTime = [string]*
 * Data Params  
 *idEvent = [string]  
 idUser = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   
@@ -103,6 +116,9 @@ idUser = [string]*
 *delete*
 * Data Params  
 *idEvent = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   
@@ -113,6 +129,9 @@ idUser = [string]*
 *get*
 * URL Params  
 *idUser = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   * Result: 
@@ -130,6 +149,9 @@ idUser = [string]*
 *get*
 * URL Params  
 *eventID = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   * Result: 
@@ -158,6 +180,9 @@ idUser = [string]*
 *get*
 * URL Params  
 *eventId = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   * Result: 
@@ -177,6 +202,9 @@ idUser = [string]*
 *name = [string]  
 mail = [string]  
 password = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   
@@ -188,6 +216,9 @@ password = [string]*
 * Data Params  
 *mail = [string]  
 password = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   
@@ -198,6 +229,9 @@ password = [string]*
 *get*
 * URL Params  
 *userID = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   * Result: 
@@ -228,6 +262,9 @@ password = [string]*
 * Data Params  
 *idUser = [string]  
 idCat = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   
@@ -238,6 +275,9 @@ idCat = [string]*
 *get*
 * URL Params  
 *userID = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   * Result: 
@@ -261,6 +301,9 @@ idCat = [string]*
 *lat = [string]  
 lon = [string]  
 idUser = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200*  
   
@@ -272,6 +315,9 @@ idUser = [string]*
 * Data Params  
 *discId = [string]  
 userId = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200* 
   
@@ -282,6 +328,9 @@ userId = [string]*
 *post*
 * Data Params  
 *eventName = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200* 
   
@@ -293,6 +342,9 @@ userId = [string]*
 * Data Params  
 *discId = [string]  
 joinedEventsNames = [string]*
+* Error Response
+  * Code: *500*
+  * Error in a database query
 * Success Result
   * Code: *200* 
   
