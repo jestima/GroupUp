@@ -103,4 +103,13 @@ userRouter.get("/Location/District", function (req, res, next) {
     );
 });
 
+userRouter.get("/:user/DiscordRoleInfo", function (req, res, next) {
+    EventsDAO.getDiscordRoleInfo(req.params.user,
+        function (result) {
+            res.send(result);
+        },
+        next
+    );
+});
+
 module.exports = userRouter;
