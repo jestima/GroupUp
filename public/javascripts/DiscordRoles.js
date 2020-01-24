@@ -4,10 +4,10 @@ function dLink() {
 
 function getDiscRoles() {
     var userId = sessionStorage.getItem("userId")
-    var joinedEvents = []
+    //var joinedEvents = []
     var joinedEventsNames = [];
     var discId;
-    $.ajax({
+    /*$.ajax({
         url: "api/Events/Group/" + userId,
         type: "GET",
         success: function (result) {
@@ -56,6 +56,36 @@ function getDiscRoles() {
                 }
             });
 
+
+        }
+    });*/
+    $.ajax({
+        url: "api/Users/" + userId + "/DiscordRoleInfo",
+        type: "GET",
+        success: function (result) {
+            if (result[0].length == 0) {
+                alert("You haven't joined any event.")
+            } else if (result[1][0].discId == null) {
+                alert("You haven't linked your Discord yet. Go to your Profile to do so.")
+            }
+            else {
+                for (i in result[0]) {
+                    joinedEventsNames.push(result[0][i].name)
+                }
+                discId = result[1][0].discId
+                $.ajax({
+                    url: "api/Discord/GiveRoles",
+                    type: "POST",
+                    traditional: true,
+                    data: {
+                        discId: discId,
+                        joinedEventsNames: joinedEventsNames
+                    },
+                    success: function (result) {
+                        alert("Successfully assigned your roles at our Discord Server! Enjoy.")
+                    }
+                });
+            }
 
         }
     });
