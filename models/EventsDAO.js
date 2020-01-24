@@ -234,7 +234,7 @@ module.exports.getUserInfo = function (id, callback) {
             conn.release();
             callback(err, { code: 500, status: "Error connecting to database." }) 
             return
-        } else conn.query("SELECT `mail`,`name`,`latlon` FROM `Users` where id=?", id, function (err, rows) {
+        } else conn.query("SELECT `mail`,`name`,`latlon`,`discId` FROM `Users` where id=?", id, function (err, rows) {
             conn.release();
             callback(rows);
 
