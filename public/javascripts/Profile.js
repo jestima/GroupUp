@@ -200,7 +200,7 @@ function linkDiscord() {
     if (window.location.href.indexOf("code=") > -1) {
         var code = window.location.href.substring(window.location.href.indexOf("="))
         code = code.substring(1)
-        const redirect = 'http://localhost:3000/Profile.html'
+        const redirect = 'https://group-up-app.herokuapp.com/Profile.html'
         var token = ""
         var discId = ""
         var userId = sessionStorage.getItem("userId")
@@ -211,8 +211,8 @@ function linkDiscord() {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             data: {
-                'client_id': '660148456614264834',
-                'client_secret': 'jT8iXtixMzCPyWHpfIfetHVDv7Nvdjrs',
+                'client_id': process.env.client_id,
+                'client_secret': process.env.client_secret,
                 'grant_type': 'authorization_code',
                 'code': code,
                 'redirect_uri': redirect,
