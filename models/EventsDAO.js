@@ -7,7 +7,7 @@ module.exports.getEventsbyCategory = function (category, callback) {
             conn.release()
             callback(err, { code: 500, status: "Error connecting to database." })
             return
-        } else conn.query("select * from Events where endDate>now() AND status = 'active' AND category=?", category, function (err, rows) {
+        } else conn.query("select * from Events where endDate>date_sub(now(),INTERVAL 1 day) AND status = 'active' AND category=?", category, function (err, rows) {
             conn.release();
             callback(rows);
 
@@ -21,7 +21,7 @@ module.exports.getEvents = function (callback) {
             conn.release();
             callback(err, { code: 500, status: "Error connecting to database." }) 
             return
-        } else conn.query("select * from Events WHERE endDate>now() AND status = 'active'", function (err, rows) {
+        } else conn.query("select * from Events WHERE endDate>date_sub(now(),INTERVAL 1 day) AND status = 'active'", function (err, rows) {
             conn.release();
             callback(rows);
 
@@ -294,6 +294,20 @@ module.exports.getUsersFromDistrict = function (callback) {
             callback(err, { code: 500, status: "Error connecting to database." }) 
             return
         } else conn.query("SELECT distrito, COUNT(*) AS usersFromDistrict FROM Users GROUP BY distrito", function (err, rows) {
+            conn.release();
+            callback(rows);
+
+        })
+    })
+}
+
+module.exports.getDiscordRoleInfo = function (id,callback) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
+        } else conn.query("SELECT Events.name FROM `Events` INNER JOIN `EventGroup` ON Events.id = EventGroup.idEvent WHERE EventGroup.idUsers = ? AND Events.status = 'active'; SELECT Users.discId FROM Users WHERE Users.id = ?",[id,id], function (err, rows) {
             conn.release();
             callback(rows);
 
