@@ -74,6 +74,7 @@ userRouter.put("/User/latlon", function (req, res, next) {
         req.body.lat,
         req.body.lon,
         req.body.idUser,
+        req.body.distrito,
         function (result) {
             res.send(result);
         },
