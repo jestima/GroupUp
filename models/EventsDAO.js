@@ -242,7 +242,7 @@ module.exports.getUserInfo = function (id, callback) {
     })
 }
 
-module.exports.updateLocation = function (lat, lon, id, callback) {
+module.exports.updateLocation = function (lat, lon, id,distrito, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
