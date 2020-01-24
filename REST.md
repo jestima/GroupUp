@@ -347,7 +347,19 @@ joinedEventsNames = [string]*
   * Error in a database query
 * Success Result
   * Code: *200* 
-  
+ 
+ # Get Discord Role Information
+* URL  
+*api/Users/:user/DiscordRoleInfo*
+* Method  
+*get*
+* Data Params  
+* URL params
+* Error Response
+  * Code: *500*
+  * Error in a database query
+* Success Result
+  * Code: *200* 
 
   
   
