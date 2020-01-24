@@ -1,4 +1,7 @@
 window.onload = function () {
+    if(!checkState()){
+        window.location.href = "login.html"
+      }
     renderNav()
     this.loadCategories()
     this.loadPInfo()
@@ -152,7 +155,15 @@ function geocode(lat, lon) {
         method: "get",
         success: function (result, status) {
             if (result.display_name != undefined) {
-                saveLocation(lat, lon)
+                var distrito = "distrito"
+                var distritos = ['Lisboa', 'Porto', 'Viana do Castelo', 'Braga', 'Vila Real', 'Bragança', 'Aveiro', 'Viseu', 'Guarda', 'Coimbra', 'Castelo Branco', 'Leiria', 'Santarém', 'Portalegre', 'Setúbal', 'Évora', 'Beja', 'Faro']
+                for (i in distritos) {
+                    if (result.display_name.includes(distritos[i])) {
+                        distrito = distritos[i]
+                        break
+                    }
+                }
+                saveLocation(lat, lon, distrito)
             } else {
                 alert("Your location appears to be undefined. Please try again later.")
             }
@@ -163,7 +174,7 @@ function geocode(lat, lon) {
     })
 }
 
-function saveLocation(lat, lon) {
+function saveLocation(lat, lon, distrito) {
     var idUser = sessionStorage.getItem("userId")
 
     $.ajax({
@@ -172,7 +183,8 @@ function saveLocation(lat, lon) {
         data: {
             idUser: idUser,
             lat: lat,
-            lon: lon
+            lon: lon,
+            distrito: distrito
         },
         success: function (res, status) {
             alert("Successfully saved your location.")

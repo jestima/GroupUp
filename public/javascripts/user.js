@@ -24,18 +24,7 @@ function registerUser() {
         });
     }
 }
-document.getElementById("signinLink").addEventListener("click",switchForms)
-document.getElementById("signupLink").addEventListener("click",switchForms)
 
-function switchForms(){
-    if(document.getElementById("signin").style.display === "none"){
-        document.getElementById("signin").style.display = "block"
-        document.getElementById("signup").style.display = "none"
-    }else{
-        document.getElementById("signin").style.display = "none"
-        document.getElementById("signup").style.display = "block"
-    }
-}
 
 function verifyPassword(pass, repass) {
     if (pass != "" && pass == repass) {
@@ -57,6 +46,19 @@ function verifyUser(username, mail) {
     } else {
         alert("Invalid username/email. Please retype them.");
         return false;
+    }
+}
+
+document.getElementById("signinLink").addEventListener("click", switchForms)
+document.getElementById("signupLink").addEventListener("click", switchForms)
+
+function switchForms() {
+    if (document.getElementById("signin").style.display === "none") {
+        document.getElementById("signin").style.display = "block"
+        document.getElementById("signup").style.display = "none"
+    } else {
+        document.getElementById("signin").style.display = "none"
+        document.getElementById("signup").style.display = "block"
     }
 }
 
@@ -86,18 +88,20 @@ function login() {
 }
 
 
+
+function signOut() {
+    sessionStorage.setItem("isLogged", "false")
+    sessionStorage.setItem("userId", null)
+    alert("Successfully signed out.")
+}
+
+
 function checkState() {
     if (isLogged == "true") {
         return true
     } else {
         return false
     }
-}
-
-function signOut() {
-    sessionStorage.setItem("isLogged", "false")
-    sessionStorage.setItem("userId", null)
-    alert("Successfully signed out.")
 }
 
 

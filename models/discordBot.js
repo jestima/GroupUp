@@ -18,7 +18,7 @@ client.on('guildMemberAdd', (member) => {
 
 client.on('ready', () => {
 
-    client.user.setActivity("Manuel & his BIG BRAIN TIME", { type: "WATCHING" })
+    client.user.setActivity("Group Up", { type: "WATCHING" })
 })
 function processCommand(receivedMessage) {
     let fullCommand = receivedMessage.content.substr(1) // Remove the leading exclamation mark
@@ -34,7 +34,8 @@ function processCommand(receivedMessage) {
         giveRoleCommand(receivedMessage, argumentsString)
     } else if (primaryCommand == "createRole") {
         createRole(receivedMessage, argumentsString)
-    } else {
+    }
+    else {
         receivedMessage.channel.send("I don't understand the command.")
     }
 }
@@ -95,6 +96,8 @@ async function createRole(receivedMessage, argumentsString) {
     client.channels.get('660188023983570986').send(`!create "${extractFirstText(argumentsString)}"`)
 
 }
+
+
 
 client.login(process.env.myBOT_TOKEN);
 

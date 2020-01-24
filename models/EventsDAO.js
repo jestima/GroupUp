@@ -1,11 +1,12 @@
 var database = require('./DbConn').pool;
 
 
-module.exports.getEventsbyCategory = function (category, callback, next) {
+module.exports.getEventsbyCategory = function (category, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
-            conn.release();
-            next(err);
+            conn.release()
+            callback(err, { code: 500, status: "Error connecting to database." })
+            return
         } else conn.query("select * from Events where endDate>now() AND status = 'active' AND category=?", category, function (err, rows) {
             conn.release();
             callback(rows);
@@ -14,11 +15,12 @@ module.exports.getEventsbyCategory = function (category, callback, next) {
     })
 }
 
-module.exports.getEvents = function (callback, next) {
+module.exports.getEvents = function (callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("select * from Events WHERE endDate>now() AND status = 'active'", function (err, rows) {
             conn.release();
             callback(rows);
@@ -27,11 +29,12 @@ module.exports.getEvents = function (callback, next) {
     })
 }
 
-module.exports.getEventCategories = function (callback, next) {
+module.exports.getEventCategories = function (callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("select * from Categories", function (err, rows) {
             conn.release();
             callback(rows);
@@ -41,11 +44,12 @@ module.exports.getEventCategories = function (callback, next) {
 }
 
 
-module.exports.createEvent = function (eventCategory, startDate, endDate, eventName, eventDescription, eventLat, eventLon, host, startTime, endTime, callback, next) {
+module.exports.createEvent = function (eventCategory, startDate, endDate, eventName, eventDescription, eventLat, eventLon, host, startTime, endTime, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("INSERT INTO `Events`(`name`, `description`, `latlon`,`host`, `category`, `startDate`, `endDate`) VALUES ('" + eventName + "','" + eventDescription + "', ST_POINTFROMTEXT('POINT(" + eventLat + " " + eventLon + ")')," + host + "," + eventCategory + ",'" + startDate + " " + startTime + ":00','" + endDate + " " + endTime + ":00')", function (err, rows) {
             conn.release();
             callback({ msg: "Boas" });
@@ -54,11 +58,12 @@ module.exports.createEvent = function (eventCategory, startDate, endDate, eventN
     })
 }
 
-module.exports.registerUser = function (name, mail, password, callback, next) {
+module.exports.registerUser = function (name, mail, password, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("INSERT INTO `Users`(`name`,`mail` ,`password`) VALUES (?,?,?)", [name, mail, password], function (err, rows) {
             conn.release();
             callback({ msg: "Boas" });
@@ -67,23 +72,25 @@ module.exports.registerUser = function (name, mail, password, callback, next) {
     })
 }
 
-module.exports.getUsers = function (mail, password, callback, next) {
+module.exports.getUsers = function (mail, password, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
-        } else conn.query("SELECT * FROM `Users` WHERE mail = ? and password = ?", [mail, password], function (err, rows) {
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
+        } else conn.query("SELECT `id`,`name` FROM `Users` WHERE mail = ? and password = ?", [mail, password], function (err, rows) {
             conn.release();
             callback(rows);
         })
     })
 }
 
-module.exports.joinEvent = function (idEvent, idUser, callback, next) {
+module.exports.joinEvent = function (idEvent, idUser, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("INSERT INTO `EventGroup` (`idEvent`,`idUsers`) VALUES (?,?)", [idEvent, idUser], function (err, rows) {
             conn.release();
             callback(rows);
@@ -91,11 +98,12 @@ module.exports.joinEvent = function (idEvent, idUser, callback, next) {
     })
 }
 
-module.exports.leaveEvent = function (idEvent, idUser, callback, next) {
+module.exports.leaveEvent = function (idEvent, idUser, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("DELETE FROM `EventGroup` WHERE idEvent = ? AND idUsers = ?", [idEvent, idUser], function (err, rows) {
             conn.release();
             callback(rows);
@@ -103,11 +111,12 @@ module.exports.leaveEvent = function (idEvent, idUser, callback, next) {
     })
 }
 
-module.exports.getEventsbyUser = function (userId, callback, next) {
+module.exports.getEventsbyUser = function (userId, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("SELECT * FROM `EventGroup` WHERE idUsers = ? ", userId, function (err, rows) {
             conn.release();
             callback(rows);
@@ -115,11 +124,12 @@ module.exports.getEventsbyUser = function (userId, callback, next) {
     })
 }
 
-module.exports.getEventbyId = function (id, callback, next) {
+module.exports.getEventbyId = function (id, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("select * from Events where id=?", id, function (err, rows) {
             conn.release();
             callback(rows);
@@ -128,11 +138,12 @@ module.exports.getEventbyId = function (id, callback, next) {
     })
 }
 
-module.exports.getEventLocation = function (id, callback, next) {
+module.exports.getEventLocation = function (id, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("select ST_X(latlon) as lat, ST_Y(latlon) as lon from Events where id=?", id, function (err, rows) {
             conn.release();
             callback(rows);
@@ -142,13 +153,14 @@ module.exports.getEventLocation = function (id, callback, next) {
 }
 
 
-module.exports.deleteEvent = function (id, callback, next) {
+module.exports.deleteEvent = function (id, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else
-            conn.query("delete from EventGroup where idEvent=?", id)
+            //conn.query("delete from EventGroup where idEvent=?", id)
         conn.query("update `Events` SET `status` = 'deleted' where id=?", id, function (err, rows) {
             conn.release();
             callback({ msg: "okeh" });
@@ -161,7 +173,7 @@ module.exports.deleteEvent = function (id, callback, next) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) return
         } else conn.query("delete from EventGroup where idEvent=" + id, function (err, rows) {
             conn.release();
             callback({ msg: "okeh" });
@@ -171,11 +183,12 @@ module.exports.deleteEvent = function (id, callback, next) {
 }*/
 
 
-module.exports.getUserPref = function (id, callback, next) {
+module.exports.getUserPref = function (id, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("SELECT * FROM `UserPreferences` where idUser=?", id, function (err, rows) {
             conn.release();
             callback(rows);
@@ -184,18 +197,19 @@ module.exports.getUserPref = function (id, callback, next) {
     })
 }
 
-module.exports.postUserPref = function (idUser, idCat, callback, next) {
+module.exports.postUserPref = function (idUser, idCat, callback) {
     var idsCat = idCat.split(" ")
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else {
             conn.query("delete from UserPreferences where idUser=?", idUser)
             for (i in idsCat) {
                 conn.query("INSERT INTO `UserPreferences`(`idCat`, `idUser`) VALUES (?,?)", [idsCat[i], idUser])
             }
-            conn.release
+            conn.release()
             callback({ msg: "boas" })
         }
     })
@@ -205,7 +219,7 @@ module.exports.postUserPref = function (idUser, idCat, callback, next) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) return
         } else conn.query("delete from UserPreferences where idUser=" + id, function (err, rows) {
             conn.release();
             callback({ msg: "okeh" });
@@ -214,12 +228,13 @@ module.exports.postUserPref = function (idUser, idCat, callback, next) {
     })
 }*/
 
-module.exports.getUserInfo = function (id, callback, next) {
+module.exports.getUserInfo = function (id, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
-        } else conn.query("SELECT * FROM `Users` where id=?", id, function (err, rows) {
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
+        } else conn.query("SELECT `mail`,`name`,`latlon` FROM `Users` where id=?", id, function (err, rows) {
             conn.release();
             callback(rows);
 
@@ -227,11 +242,12 @@ module.exports.getUserInfo = function (id, callback, next) {
     })
 }
 
-module.exports.updateLocation = function (lat, lon, id, callback, next) {
+module.exports.updateLocation = function (lat, lon, id, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else {
             conn.query("UPDATE `Users` SET `latlon`= ST_POINTFROMTEXT('POINT(" + lat + " " + lon + ")') WHERE id=?", id, function (err, rows) {
                 conn.release();
@@ -242,14 +258,44 @@ module.exports.updateLocation = function (lat, lon, id, callback, next) {
     })
 }
 
-module.exports.linkDiscord = function (discId, userId, callback, next) {
+module.exports.linkDiscord = function (discId, userId, callback) {
     database.getConnection(function (err, conn) {
         if (err) {
             conn.release();
-            next(err);
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
         } else conn.query("UPDATE `Users` SET `discId`=? WHERE id=?", [discId, userId], function (err, rows) {
             conn.release();
             callback({ msg: "okeh" });
+
+        })
+    })
+}
+
+module.exports.updateExpired = function (callback) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
+        } else conn.query("UPDATE `Events` SET `status`='expired' WHERE `endDate` < CURRENT_DATE", function (err, rows) {
+            conn.release();
+            callback({msg: "OK"});
+
+        })
+    })
+}
+
+
+module.exports.getUsersFromDistrict = function (callback) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
+        } else conn.query("SELECT distrito, COUNT(*) AS usersFromDistrict FROM Users GROUP BY distrito", function (err, rows) {
+            conn.release();
+            callback(rows);
 
         })
     })

@@ -118,6 +118,14 @@ router.get("/:eventId/Location", function (req, res, next) {
     );
 });
 
+router.put("/Event/Expired", function (req, res, next) {
+    EventsDAO.updateExpired(
+        function (result) {
+            res.send(result);
+        },
+        next
+    );
+});
 
 
 

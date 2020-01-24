@@ -78,8 +78,18 @@ function deleteEvent(data) {
 
 }
 
-function updateExpired(){
-    
+function updateExpired() {
+    $.ajax({
+        url: "/api/Events/Event/Expired",
+        method: "put",
+        data:{},
+        success: function (res, status) {
+            alert("Successfully updated the events.")
+        },
+        error: function () {
+
+        }
+    });
 }
 
 

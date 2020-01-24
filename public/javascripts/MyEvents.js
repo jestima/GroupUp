@@ -1,4 +1,7 @@
 window.onload = function () {
+    if(!checkState()){
+        window.location.href = "login.html"
+      }
     renderNav()
     this.loadMyCreatedEvents();
 };

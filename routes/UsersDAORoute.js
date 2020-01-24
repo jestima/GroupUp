@@ -93,4 +93,13 @@ userRouter.post("/User/Discord/", function (req, res, next) {
 });
 
 
+userRouter.get("/Location/District", function (req, res, next) {
+    EventsDAO.getUsersFromDistrict(
+        function (result) {
+            res.send(result);
+        },
+        next
+    );
+});
+
 module.exports = userRouter;
