@@ -1,5 +1,5 @@
 function dLink() {
-    location.href = "https://discordapp.com/api/oauth2/authorize?client_id=660148456614264834&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2FProfile.html&response_type=code&scope=identify"
+    location.href = "https://discordapp.com/api/oauth2/authorize?client_id=660148456614264834&redirect_uri=https%3A%2F%2Fgroup-up-app.herokuapp.com%2FProfile.html&response_type=code&scope=identify"
 }
 
 function getDiscRoles() {
