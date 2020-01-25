@@ -1,0 +1,74 @@
+[
+{"type":"header","version":"4.8.5","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"EFrCxDdGao"},
+{"type":"table","name":"Categories","database":"EFrCxDdGao","data":
+[
+{"id":"1","name":"Jogging","image":"https:\/\/static01.nyt.com\/images\/2014\/01\/10\/health\/10well_askwell\/10well_askwell-tmagArticle.jpg","description":"Jogging is a form of trotting or running at a slow or leisurely pace."},
+{"id":"2","name":"Photography","image":"https:\/\/d36iur3orme9ke.cloudfront.net\/wp-content\/uploads\/2016\/06\/blog_top-image_Open-Source-Photography.jpg","description":"Photography is the art, application and practice of creating durable images by recording light or other electromagnetic radiation."},
+{"id":"3","name":"Cooking","image":"https:\/\/assets.epicurious.com\/photos\/5dc6dbfbd482f10008d4fad9\/4:3\/w_4013,h_3010,c_limit\/NewJoyCooking_HERO_110519_6023.jpg","description":"Cooking or cookery is the art, technology, science and craft of preparing food for consumption."},
+{"id":"4","name":"Gardening","image":"https:\/\/hips.hearstapps.com\/hmg-prod.s3.amazonaws.com\/images\/gardening-1521662873.jpg?crop=1.00xw:1.00xh;0,0&resize=480:*","description":"Gardening is the practice of growing and cultivating plants as part of horticulture."},
+{"id":"5","name":"Drawing","image":"https:\/\/xo3d.co.uk\/wp-content\/uploads\/2019\/11\/Colour-Palette.jpg","description":"Drawing is a form of visual art in which a person uses various drawing instruments to mark paper or another two-dimensional medium."},
+{"id":"6","name":"Knitting","image":"https:\/\/static.wixstatic.com\/media\/baafc9_775d60d666fe4395820506d79d1b9e6d~mv2.jpg","description":"Knitting is a method by which yarn is manipulated to create a textile or fabric; it is used in many types of garments."}
+]
+}
+,{"type":"table","name":"EventGroup","database":"EFrCxDdGao","data":
+[
+{"idRelation":"77","idUsers":"2","idEvent":"80"},
+{"idRelation":"78","idUsers":"1","idEvent":"80"},
+{"idRelation":"80","idUsers":"1","idEvent":"82"},
+{"idRelation":"81","idUsers":"1","idEvent":"83"},
+{"idRelation":"83","idUsers":"1","idEvent":"85"},
+{"idRelation":"84","idUsers":"1","idEvent":"88"},
+{"idRelation":"85","idUsers":"1","idEvent":"89"},
+{"idRelation":"87","idUsers":"1","idEvent":"92"},
+{"idRelation":"88","idUsers":"1","idEvent":"93"}
+]
+}
+,{"type":"table","name":"Events","database":"EFrCxDdGao","data":
+[
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+
+]
+}
+,{"type":"table","name":"UserPreferences","database":"EFrCxDdGao","data":
+[
+{"idCat":"1","idUser":"1"},
+{"idCat":"5","idUser":"1"},
+{"idCat":"6","idUser":"1"},
+{"idCat":"1","idUser":"3"},
+{"idCat":"3","idUser":"3"}
+]
+}
+,{"type":"table","name":"Users","database":"EFrCxDdGao","data":
+[
+,
+{"id":"2","name":"Bruno R.","latlon":null,"distrito":"Lisboa","mail":"Bac.R@outlook.com","password":"boostedbymanuel","discId":"152794805464858624"},
+{"id":"3","name":"TestUser","latlon":null,"distrito":"Lisboa","mail":"testuser@groupup","password":"teste","discId":null},
+{"id":"5","name":"dude","latlon":null,"distrito":"Lisboa","mail":"dude@","password":"dorce0-fobmoK-jiqkor","discId":null},
+{"id":"6","name":"fernando","latlon":null,"distrito":"Lisboa","mail":"fernando.ramos@farminveste.pt","password":"teste","discId":null},
+{"id":"7","name":"Block around Corners","latlon":null,"distrito":"Leiria","mail":"block@asd","password":"asd","discId":null},
+{"id":"9","name":"MiB","latlon":null,"distrito":"Leiria","mail":"miguel.bugalho@gmail.com","password":"aaa123","discId":"260843155237109772"},
+{"id":"10","name":"Profefor Rui","latlon":null,"distrito":"Leiria","mail":"neto@zippar.com","password":"soulindo","discId":null},
+{"id":"11","name":"test","latlon":null,"distrito":null,"mail":"test@gmail.com","password":"123","discId":null}
+]
+}
+]
