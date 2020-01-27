@@ -23,11 +23,12 @@ function loadMyCreatedEvents() {
             } else {
                 document.getElementById("joined-events").innerHTML = `<p>You haven't joined any event.</p>`
             }
+            console.log(joinedEvents)
             $.ajax({
                 url: "api/Events/",
                 type: "GET",
                 success: function (result) {
-
+                    console.log(result)
                     for (event in result) {
                         if (result[event].host == userId) {
                             loadedEvents.push(result[event].id)
