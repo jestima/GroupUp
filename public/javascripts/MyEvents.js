@@ -23,17 +23,21 @@ function loadMyCreatedEvents() {
             } else {
                 document.getElementById("joined-events").innerHTML = `<p>You haven't joined any event.</p>`
             }
-            console.log(joinedEvents)
+          
             $.ajax({
                 url: "api/Events/",
                 type: "GET",
                 success: function (result) {
-                    console.log(result)
+     
                     for (event in result) {
+                        console.log(result[event].id)
+                        console.log(result[event].host)
+        
                         if (result[event].host == userId) {
                             loadedEvents.push(result[event].id)
                             document.getElementById("cards-wrapper").innerHTML += deleteTemplate(result[event])
                         } else if (joinedEvents.includes(result[event].id) && result[event].host != userId) {
+                            console.log("tou aqui")
                             document.getElementById("joined-events").innerHTML += joinedEventTemplate(result[event])
                         } else {
 
