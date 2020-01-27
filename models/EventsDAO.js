@@ -7,7 +7,7 @@ module.exports.getEventsbyCategory = function (category, callback) {
             conn.release()
             callback(err, { code: 500, status: "Error connecting to database." })
             return
-        } else conn.query("select * from Events where endDate>date_sub(now(),INTERVAL 1 day) AND status = 'active' AND category=?", category, function (err, rows) {
+        } else conn.query("select * from Events where  status = 'active' AND category=?", category, function (err, rows) {
             conn.release();
             callback(rows);
 
@@ -21,7 +21,7 @@ module.exports.getEvents = function (callback) {
             conn.release();
             callback(err, { code: 500, status: "Error connecting to database." }) 
             return
-        } else conn.query("select * from Events WHERE endDate>date_sub(now(),INTERVAL 1 day) AND status = 'active'", function (err, rows) {
+        } else conn.query("select * from Events WHERE status = 'active'", function (err, rows) {
             conn.release();
             callback(rows);
 
