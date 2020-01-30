@@ -353,7 +353,6 @@ joinedEventsNames = [string]*
 *api/Users/:user/DiscordRoleInfo*
 * Method  
 *get*
-* Data Params  
 * URL params
 * Error Response
   * Code: *500*
@@ -361,7 +360,18 @@ joinedEventsNames = [string]*
 * Success Result
   * Code: *200* 
 
-  
+
+   # Get Active Events Info from User
+   * URL  
+   *api/Users//:user/ActiveEventsInfo*
+   * Method  
+   *get*
+   * URL params
+   * Error Response
+    * Code: *500*
+    * Error in a database query
+   * Success Result
+    * Code: *200* 
   
  
  
