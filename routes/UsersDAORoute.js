@@ -20,6 +20,8 @@ userRouter.post("/", function (req, res, next) {
         req.body.mail,
         req.body.password,
         function (result) {
+            console.log(result)
+            if(result.length === 0) return res.status(404).send({error:'User does not exist'});
             res.send(result);
         },
         next
@@ -63,6 +65,7 @@ userRouter.get("/:userId", function (req, res, next) {
     EventsDAO.getUserInfo(
         req.params.userId,
         function (result) {
+            if(result.length === 0) return res.status(404).send({error:'User does not exist'});
             res.send(result);
         },
         next
@@ -106,10 +109,26 @@ userRouter.get("/Location/District", function (req, res, next) {
 userRouter.get("/:user/DiscordRoleInfo", function (req, res, next) {
     EventsDAO.getDiscordRoleInfo(req.params.user,
         function (result) {
+            // EXEMPLO STATUS 404 & 401
+            if(result[0].length === 0) return res.status(404).send({error:'No joined events.'});
+            if(result[1][0].discId === null) return res.status(401).send({error:'Must provide Discord ID.'});
             res.send(result);
         },
         next
     );
 });
+
+userRouter.get("/:user/ActiveEventsInfo", function (req, res, next) {
+    EventsDAO.getEventsInfoFromUser(req.params.user,
+        function (result) {
+            res.send(result);
+        },
+        next
+    );
+});
+
+
+
+
 
 module.exports = userRouter;

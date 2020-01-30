@@ -59,10 +59,13 @@ function getDiscRoles() {
 
         }
     });*/
+
+    //EXEMPLO ERROR HANDLING
     $.ajax({
         url: "api/Users/" + userId + "/DiscordRoleInfo",
         type: "GET",
         success: function (result) {
+            console.log(result)
             if (result[0].length == 0) {
                 alert("You haven't joined any event.")
             } else if (result[1][0].discId == null) {
@@ -83,10 +86,17 @@ function getDiscRoles() {
                     },
                     success: function (result) {
                         alert("Successfully assigned your roles at our Discord Server! Enjoy.")
+                    },
+                    error: function (err) {
+                        console.log(err)
                     }
                 });
             }
 
+        },
+        error: function (err){
+            if(err.status === 401) alert("You haven't linked your Discord yet.")
+            else if(err.status === 404) alert("You haven't joined any event")
         }
     });
 }

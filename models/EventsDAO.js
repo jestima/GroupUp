@@ -7,7 +7,7 @@ module.exports.getEventsbyCategory = function (category, callback) {
             conn.release()
             callback(err, { code: 500, status: "Error connecting to database." })
             return
-        } else conn.query("select * from Events where  status = 'active' AND category=?", category, function (err, rows) {
+        } else conn.query("select * from Events where status = 'active' AND category=?", category, function (err, rows) {
             conn.release();
             callback(rows);
 
@@ -50,7 +50,8 @@ module.exports.createEvent = function (eventCategory, startDate, endDate, eventN
             conn.release();
             callback(err, { code: 500, status: "Error connecting to database." }) 
             return
-        } else conn.query("INSERT INTO `Events`(`name`, `description`, `latlon`,`host`, `category`, `startDate`, `endDate`) VALUES ('" + eventName + "','" + eventDescription + "', ST_POINTFROMTEXT('POINT(" + eventLat + " " + eventLon + ")')," + host + "," + eventCategory + ",'" + startDate + " " + startTime + ":00','" + endDate + " " + endTime + ":00')", function (err, rows) {
+        } else conn.query("INSERT INTO `Events`(`name`, `description`, `latlon`,`host`, `category`, `startDate`, `endDate`) VALUES ('" + eventName + "','" + eventDescription + "', ST_POINTFROMTEXT('POINT(" + eventLat + " " + eventLon + ")')," + host + "," + eventCategory + ",'" + startDate + " " + startTime + ":00','" + endDate + " " + endTime + ":00'); ", function (err, rows) {
+            conn.query("INSERT INTO `EventGroup` (`idEvent`,`idUsers`) VALUES ("+rows.insertId+","+host+")"),
             conn.release();
             callback({ msg: "Boas" });
 
@@ -80,7 +81,9 @@ module.exports.getUsers = function (mail, password, callback) {
             return
         } else conn.query("SELECT `id`,`name` FROM `Users` WHERE mail = ? and password = ?", [mail, password], function (err, rows) {
             conn.release();
-            callback(rows);
+            //EXEMPLO PARA DIA 31 CALLBACK LISTA E SEM LISTA.
+            if(rows.length === 0) callback(rows)
+            else callback(rows[0])
         })
     })
 }
@@ -308,6 +311,20 @@ module.exports.getDiscordRoleInfo = function (id,callback) {
             callback(err, { code: 500, status: "Error connecting to database." }) 
             return
         } else conn.query("SELECT Events.name FROM `Events` INNER JOIN `EventGroup` ON Events.id = EventGroup.idEvent WHERE EventGroup.idUsers = ? AND Events.status = 'active'; SELECT Users.discId FROM Users WHERE Users.id = ?",[id,id], function (err, rows) {
+            conn.release();
+            callback(rows);
+
+        })
+    })
+}
+
+module.exports.getEventsInfoFromUser = function (id,callback) {
+    database.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            callback(err, { code: 500, status: "Error connecting to database." }) 
+            return
+        } else conn.query("SELECT DISTINCT Events.name, Events.description, Events.id, Events.host FROM `Events` INNER JOIN `EventGroup` ON Events.id = EventGroup.idEvent WHERE (EventGroup.idUsers = ? AND Events.status = 'active') OR (Events.host = ? AND Events.status = 'active')",[id,id], function (err, rows) {
             conn.release();
             callback(rows);
 

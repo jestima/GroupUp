@@ -20,14 +20,10 @@ function loadCategoriesOptions() {
 
 function renderCreate() {
     if (checkState() == true) {
-        document.getElementById("btnID").addEventListener('click', showCreateEvent)
-        document.getElementById('button_containerID').style.display = "flex"
+        document.getElementById('box').innerHTML = '<a class="btn btn-white btn-animation-1" id="btnid">Create an event!</a>'
+        document.getElementById("btnid").addEventListener('click', showCreateEvent)
+        document.getElementById('box').style.display = "block"
     }
-}
-
-function exitWindow(){
-    console.log("Hello");
-    document.getElementById('CreateEvent').style.display = "none"
 }
 
 function formTemplate() {
@@ -36,7 +32,7 @@ function formTemplate() {
     <form id="contact" method="post">
         <div id="CreateEventbtn">
             <h3>Create Events</h3>
-            <button type="button" class="CreateEventCloseBtn" onclick="exitWindow(); return false">+</button>
+            <h3><button onclick="enableScroll()">+</button></h3>
         </div>
         <fieldset>
             <select id="eventSchedule">

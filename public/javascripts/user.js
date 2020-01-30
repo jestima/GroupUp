@@ -50,6 +50,7 @@ function verifyUser(username, mail) {
 }
 
 
+
 function login() {
     var mail = document.getElementById("your_name").value;
     var password = document.getElementById("your_pass").value;
@@ -62,16 +63,15 @@ function login() {
             password: password
         },
         success: function (result) {
-            if (result != 0) {
-                alert("Successfully signed in. Welcome " + result[0].name)
-                window.location = "index.html"
-                sessionStorage.setItem("userId", result[0].id)
-                sessionStorage.setItem("isLogged", "true")
-            } else {
-                alert("Incorrect username/password.")
-            }
+            alert("Successfully signed in. Welcome " + result.name)
+            window.location = "index.html"
+            sessionStorage.setItem("userId", result.id)
+            sessionStorage.setItem("isLogged", "true")
         },
-        error: function () { }
+        error: function (err) {
+            alert("Wrong username/password.")
+        }
+
     });
 }
 
